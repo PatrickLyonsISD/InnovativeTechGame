@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.unscramble.ui
 
-/**
- * Data class that represents the game UI state
- */
-data class GameUiState(
-    val currentScrambledWord: String = "",
-    val currentWordCount: Int = 1,
-    val score: Int = 0,
-    val isGuessedWordWrong: Boolean = false,
-    val isGameOver: Boolean = false
+package com.example.TechTusQuiz.ui.theme
+
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Shapes
+import androidx.compose.ui.unit.dp
+
+val Shapes = Shapes(
+    small = RoundedCornerShape(4.dp),
+    medium = RoundedCornerShape(10.dp),
+    large = RoundedCornerShape(16.dp)
 )

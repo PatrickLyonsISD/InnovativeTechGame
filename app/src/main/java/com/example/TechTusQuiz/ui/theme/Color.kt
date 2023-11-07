@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.unscramble.ui.theme
+package com.example.TechTusQuiz.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

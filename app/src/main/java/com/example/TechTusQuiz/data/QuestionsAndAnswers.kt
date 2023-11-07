@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.unscramble.data
+package com.example.TechTusQuiz.data
 
 data class Question(
     val text: String,

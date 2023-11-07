@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.unscramble.ui
+package com.example.TechTusQuiz.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -37,8 +37,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.unscramble.data.Question
-import com.example.unscramble.ui.theme.UnscrambleTheme
+import com.example.TechTusQuiz.data.Question
+import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import androidx.compose.runtime.livedata.observeAsState
 
 @Composable

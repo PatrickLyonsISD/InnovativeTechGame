@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.example.unscramble.ui
+package com.example.TechTusQuiz.ui
 
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.unscramble.data.Question
-import com.example.unscramble.data.QuestionsRepository
+import com.example.TechTusQuiz.data.Question
+import com.example.TechTusQuiz.data.QuestionsRepository
 
 
 

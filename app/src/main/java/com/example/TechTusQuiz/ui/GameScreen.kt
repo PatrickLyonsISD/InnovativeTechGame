@@ -46,23 +46,32 @@ fun GameScreen(gameViewModel: QuizViewModel= viewModel()) {
     val currentQuestion by gameViewModel.currentQuestion.observeAsState()
     val currentScore by gameViewModel.currentScore.observeAsState(0)
     val isGameOver by gameViewModel.isGameOver.observeAsState(false)
+    val selectedAnswerExplanation by gameViewModel.selectedAnswerExplanation.observeAsState()
 
+    Scaffold {
+        Box(modifier = Modifier.padding(it)) {
+            Column {
+                ScoreDisplay(score = currentScore) // Display the score at the top
+                Spacer(modifier = Modifier.height(16.dp)) // Add some space between score and question
 
-    Scaffold(
-
-    ) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {
-            if (isGameOver) {
-                GameOverDialog(score = currentScore, onDismiss = {
-                    gameViewModel.resetGame()
-                })
-            } else {
-                currentQuestion?.let {
-                    QuestionContent(question = it, onAnswerSelected = { answerIndex ->
-                        gameViewModel.submitAnswer(answerIndex)
+                if (isGameOver) {
+                    GameOverDialog(score = currentScore, onDismiss = {
+                        gameViewModel.resetGame()
                     })
+                } else {
+                    currentQuestion?.let { question ->
+                        QuestionContent(
+                            question = question,
+                            onAnswerSelected = { answerIndex ->
+                                gameViewModel.submitAnswer(answerIndex)
+                            }
+                        )
+                    }
                 }
-                ScoreDisplay(score = currentScore)
+            }
+
+            selectedAnswerExplanation?.let { explanation ->
+                ExplanationDialog(explanation, onDismiss = { gameViewModel.proceedToNextQuestion() })
             }
         }
     }
@@ -70,76 +79,64 @@ fun GameScreen(gameViewModel: QuizViewModel= viewModel()) {
 
 
 @Composable
-    fun GameOverDialog(score: Int, onDismiss: () -> Unit) {
-        AlertDialog(
-            onDismissRequest = { /* Do nothing to prevent dismiss */ },
-            title = { Text("Game Over") },
-            text = { Text("Your final score is $score") },
-            confirmButton = {
-                Button(onClick = onDismiss) {
-                    Text("Play Again")
-                }
+fun GameOverDialog(score: Int, onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = { onDismiss() },
+        title = { Text("Game Over") },
+        text = { Text("Your final score is $score") },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("Play Again")
             }
-        )
-    }
+        }
+    )
+}
 
 @Composable
-fun QuestionScreen(question: Question?, score: Int, onAnswerSelected: (Int) -> Unit) {
-    Column(
+fun ExplanationDialog(explanation: String, onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = { /* Do nothing, require explicit dismissal */ },
+        title = { Text("Explanation") },
+        text = { Text(explanation) },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("OK")
+            }
+        }
+    )
+}
+
+
+@Composable
+fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
+    Column {
+        Text(text = question.text, style = MaterialTheme.typography.displayMedium)
+        Spacer(modifier = Modifier.height(20.dp))
+
+        question.options.forEachIndexed { index, option ->
+            Button(
+                onClick = { onAnswerSelected(index) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                Text(text = option)
+            }
+        }
+    }
+}
+
+@Composable
+fun ScoreDisplay(score: Int) {
+    Box(
         modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        contentAlignment = Alignment.Center
     ) {
-        question?.let {
-            QuestionContent(question = it, onAnswerSelected = onAnswerSelected)
-        }
-        ScoreDisplay(score = score)
+        Text(text = "Score: $score")
     }
 }
-
-    @Composable
-    fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = question.text, style = MaterialTheme.typography.displayMedium)
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            question.options.forEachIndexed { index, option ->
-                Button(
-                    onClick = { onAnswerSelected(index) },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp)
-                ) {
-                    Text(text = option)
-                }
-            }
-        }
-    }
-
-    @Composable
-    fun ScoreDisplay(score: Int) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(text = "Score: $score")
-        }
-    }
-
-
-
 
 
 @Composable

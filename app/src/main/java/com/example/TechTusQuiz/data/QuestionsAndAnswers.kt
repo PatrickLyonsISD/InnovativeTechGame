@@ -19,7 +19,8 @@ package com.example.TechTusQuiz.data
 data class Question(
     val text: String,
     val options: List<String>,
-    val correctAnswerIndex: Int
+    val correctAnswerIndex: Int,
+    val Explanation: String
 )
 
 class QuestionsRepository{
@@ -28,22 +29,26 @@ class QuestionsRepository{
             Question(
                 text="Which of the following is a single use plastic?",
                 options= listOf("Plastic grocery bag", "Reusable water bottle", "Silicone baking mat", "Tupperware container"),
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+                Explanation = "Plastic grocery bags are typically used once test explanation 1"
             ),
             Question(
                 text = "What can be a sustainable alternative to single-use plastic straws?",
                 options = listOf("Paper straws", "PVC piping", "Plastic stirrers", "Straws made from ivory"),
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+                Explanation = "Plastic grocery bags are typically used once explanation 2"
             ),
             Question(
                 text = "Which action can significantly reduce the impact of single-use plastics on the environment?",
                 options = listOf("Reusing them for the same purpose", "Throwing them into any bin available", "Recycling them where facilities exist", "Burning them for heat"),
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+                Explanation = "Plastic grocery bags are typically used once explanation 3"
             ),
             Question(
                 text = "Why are single-use plastics a problem for marine life?",
                 options = listOf("They can be mistaken for food and ingested, causing harm or death", "They provide too much food for marine animals", "They increase the water temperature", "They act as homes for aquatic plants"),
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+                Explanation = "Plastic grocery bags are typically used once explanation 4"
             )
         )
     }

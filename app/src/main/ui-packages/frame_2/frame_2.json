@@ -1,0 +1,460 @@
+{
+  "name": "frame_2",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "20:6",
+    "version": "4529663788",
+    "component-id": "a8f6035f8747e881303bc867d7eddf17d13afdae"
+  },
+  "default": "Frame 2",
+  "documentation": "prototype for tech tus game",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Background"
+      },
+      {
+        "type": "vector",
+        "id": "question"
+      },
+      {
+        "type": "text",
+        "id": "GAME TITLE"
+      },
+      {
+        "type": "text",
+        "id": "question 1"
+      },
+      {
+        "type": "vector",
+        "id": "Answer"
+      },
+      {
+        "type": "vector",
+        "id": "Answer1"
+      },
+      {
+        "type": "vector",
+        "id": "Answer2"
+      },
+      {
+        "type": "vector",
+        "id": "Answer3"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play"
+      },
+      {
+        "type": "text",
+        "id": "Score: 0"
+      },
+      {
+        "type": "text",
+        "id": "Answer4"
+      },
+      {
+        "type": "text",
+        "id": "Answer5"
+      },
+      {
+        "type": "text",
+        "id": "Answer6"
+      },
+      {
+        "type": "text",
+        "id": "Answer7"
+      }
+    ],
+    "modes": {
+      "Frame 2": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Background",
+              "question",
+              "GAME TITLE",
+              "question 1",
+              "Answer",
+              "Answer1",
+              "Answer2",
+              "Answer3",
+              "Button-Play",
+              "Score: 0",
+              "Answer4",
+              "Answer5",
+              "Answer6",
+              "Answer7"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            }
+          },
+          {
+            "id": "Background",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "480.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "800.0"
+              }
+            },
+            "vector-content": "background.svg"
+          },
+          {
+            "id": "question",
+            "border-radius": "13.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "65.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "84.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "349.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "125.0"
+              }
+            },
+            "vector-content": "question.svg"
+          },
+          {
+            "id": "GAME TITLE",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "15.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "GAME TITLE",
+            "overflow": "visible",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "question 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "124.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "question 1",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Answer",
+            "border-radius": "13.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "252.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "428.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "93.0"
+              }
+            },
+            "vector-content": "answer.svg"
+          },
+          {
+            "id": "Answer1",
+            "border-radius": "13.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "368.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "428.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "93.0"
+              }
+            },
+            "vector-content": "answer1.svg"
+          },
+          {
+            "id": "Answer2",
+            "border-radius": "13.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "484.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "428.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "93.0"
+              }
+            },
+            "vector-content": "answer2.svg"
+          },
+          {
+            "id": "Answer3",
+            "border-radius": "13.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "600.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "428.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "93.0"
+              }
+            },
+            "vector-content": "answer3.svg"
+          },
+          {
+            "id": "Button-Play",
+            "border-radius": "8.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "65.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "710.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "349.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "72.0"
+              }
+            },
+            "vector-content": "button_play.svg"
+          },
+          {
+            "id": "Score: 0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "169.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "724.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Score: 0",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Answer4",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "176.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Answer",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Answer5",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "176.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "392.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Answer",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Answer6",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "176.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "509.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Answer",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Answer7",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "176.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "617.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Answer",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "36.0",
+            "line-height": "1.2102272245619032",
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Frame 2",
+      "size": {
+        "width": 480.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

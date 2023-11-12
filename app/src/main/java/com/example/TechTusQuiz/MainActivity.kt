@@ -25,6 +25,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.TechTusQuiz.ui.GameScreen
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
+import com.example.unscramble.frame2.Frame2
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     GameScreen()
+
                 }
             }
         }

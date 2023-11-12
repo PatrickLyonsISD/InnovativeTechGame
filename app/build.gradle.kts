@@ -19,6 +19,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.relay") version "0.3.09"
 }
 
 android {
@@ -26,7 +27,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.unscramble"
+        applicationId = "com.example.TechTusQuiz"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

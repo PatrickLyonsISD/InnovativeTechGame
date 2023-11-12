@@ -30,14 +30,20 @@ class QuizViewModel: ViewModel() {
     private val _questions = MutableLiveData<List<Question>>()
     val questions: LiveData<List<Question>> = _questions
 
-    val _currentQuestionIndex = MutableLiveData(0)
+    private val _currentQuestionIndex = MutableLiveData(0)
     val currentQuestionIndex: LiveData<Int> = _currentQuestionIndex
 
-    val _currentScore = MutableLiveData(0)
+    private val _currentScore = MutableLiveData(0)
     val currentScore: LiveData<Int> = _currentScore
 
     private val _currentQuestion = MediatorLiveData<Question>()
     val currentQuestion: LiveData<Question> = _currentQuestion
+
+    private val _isGameOver = MutableLiveData(false)
+    val isGameOver: LiveData<Boolean> = _isGameOver
+
+    private val _selectedAnswerExplanation = MutableLiveData<String?>(null)
+    val selectedAnswerExplanation: LiveData<String?> = _selectedAnswerExplanation
 
     private val questionsRepository = QuestionsRepository()
 
@@ -66,28 +72,38 @@ class QuizViewModel: ViewModel() {
 
     fun submitAnswer(answerIndex: Int) {
         if (_isGameOver.value == true) {
-
             return
         }
         val question = _currentQuestion.value ?: return
+        _selectedAnswerExplanation.value = question.Explanation
         if (question.correctAnswerIndex == answerIndex) {
             _currentScore.value = (_currentScore.value ?: 0) + 1
         }
-        moveToNextQuestion()
+        // Don't move to the next question immediately
     }
 
-    private fun moveToNextQuestion() {
+    fun proceedToNextQuestion() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
         if (nextIndex < (_questions.value?.size ?: 0)) {
             _currentQuestionIndex.value = nextIndex
         } else {
-            _isGameOver.value=true
+            _isGameOver.value = true
+        }
+        resetExplanation()
+    }
+    private fun moveToNextQuestion() {
+        val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
+        if (nextIndex < (_questions.value?.size ?: 0)) {
+            _currentQuestionIndex.value = nextIndex
+            _selectedAnswerExplanation.value = null // Reset selected answer for next question
+        } else {
+            _isGameOver.value = true
         }
     }
 
-
-    val _isGameOver = MutableLiveData(false)
-    val isGameOver: LiveData<Boolean> = _isGameOver
+    fun resetExplanation() {
+        _selectedAnswerExplanation.value = null
+    }
 
     private fun checkGameOver() {
         _isGameOver.value = (_currentQuestionIndex.value ?: 0) >= (_questions.value?.size ?: 0)

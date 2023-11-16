@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.TechTusQuiz.ui.GameScreen
+import com.example.TechTusQuiz.ui.GameScreen2
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import com.example.unscramble.frame2.Frame2
 
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GameScreen()
+                    GameScreen2()
 
                 }
             }

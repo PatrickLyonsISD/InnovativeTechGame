@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -31,8 +29,8 @@ import com.example.TechTusQuiz.data.Question
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.graphics.Color
+import com.example.TechTusQuiz.data.Option
 import com.example.unscramble.frame5.Background
-import com.google.relay.compose.RelayVector
 
 @Composable
 fun GameScreen(gameViewModel: QuizViewModel= viewModel()) {
@@ -43,7 +41,7 @@ fun GameScreen(gameViewModel: QuizViewModel= viewModel()) {
 
     Scaffold {
         Background()
-        ScoreDisplay(score = currentScore)
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -67,6 +65,7 @@ fun GameScreen(gameViewModel: QuizViewModel= viewModel()) {
                 ExplanationDialog(explanation, onDismiss = { gameViewModel.proceedToNextQuestion() })
             }
         }
+        ScoreDisplay(score = currentScore)
     }
 }
 
@@ -93,9 +92,9 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit) {
 
 @Composable
 fun AnswerGrid(question: Question, onAnswerSelected: (Int) -> Unit) {
-    // Assuming there are always 4 answers for simplicity
+
     Grid(items = question.options, numColumns = 2) { answer, index ->
-        AnswerButton(answer, onClick = { onAnswerSelected(index) })
+        AnswerButton(answer) { onAnswerSelected(index) }
     }
 }
 
@@ -127,13 +126,13 @@ fun <T> Grid(items: List<T>, numColumns: Int, content: @Composable (item: T, ind
 }
 
 @Composable
-fun AnswerButton(answer: String, onClick: () -> Unit) {
+fun AnswerButton(answer: Option, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
         modifier = Modifier.padding(8.dp)
     ) {
-        Text(text = answer, color = Color.White)
+        //Text(text = answer, color = Color.White)
     }
 }
 
@@ -144,10 +143,11 @@ fun ScoreDisplay(score: Int) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .background(Color.Green)
+            .background(Color.Yellow)
             .padding(16.dp)
     ){
-        Text(text = "Score: $score")
+        Text(
+            text = "Score: $score")
     }
 }
 
@@ -194,7 +194,7 @@ fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-                Text(text = option)
+                //Text(text = option)
             }
         }
     }

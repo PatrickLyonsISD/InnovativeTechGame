@@ -16,39 +16,38 @@
 
 package com.example.TechTusQuiz.data
 
+import android.media.Image
+import com.example.unscramble.R
+
 data class Question(
+
     val text: String,
-    val options: List<String>,
+    val options: List<Option>,
     val correctAnswerIndex: Int,
-    val Explanation: String
+    val explanation: String,
+    val questionImage: Int // Image for the question
+)
+
+data class Option(
+    val text: String,
+    val image: Int
 )
 
 class QuestionsRepository{
     fun getQuestions(): List<Question>{
         return listOf(
             Question(
-                text="Which of the following is a single use plastic?",
-                options= listOf("Plastic grocery bag", "Reusable water bottle", "Silicone baking mat", "Tupperware container"),
-                correctAnswerIndex = 0,
-                Explanation = "Plastic grocery bags are typically used once test explanation 1"
-            ),
-            Question(
-                text = "What can be a sustainable alternative to single-use plastic straws?",
-                options = listOf("Paper straws", "PVC piping", "Plastic stirrers", "Straws made from ivory"),
-                correctAnswerIndex = 0,
-                Explanation = "Plastic grocery bags are typically used once explanation 2"
-            ),
-            Question(
-                text = "Which action can significantly reduce the impact of single-use plastics on the environment?",
-                options = listOf("Reusing them for the same purpose", "Throwing them into any bin available", "Recycling them where facilities exist", "Burning them for heat"),
-                correctAnswerIndex = 0,
-                Explanation = "Plastic grocery bags are typically used once explanation 3"
-            ),
-            Question(
-                text = "Why are single-use plastics a problem for marine life?",
-                options = listOf("They can be mistaken for food and ingested, causing harm or death", "They provide too much food for marine animals", "They increase the water temperature", "They act as homes for aquatic plants"),
-                correctAnswerIndex = 0,
-                Explanation = "Plastic grocery bags are typically used once explanation 4"
+
+                text = "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
+                options = listOf(
+                    Option(text = "Test list", image = R.drawable.q2_question_factory_1 ),
+                    Option(text = "Disposal", image = R.drawable.q2_question_disposal_1),
+                    Option(text = "Transport", image = R.drawable.q2_question_transport_1 ),
+                    Option(text = "Consumer", image = R.drawable.q2_question_factory_1)
+                ),
+                correctAnswerIndex = 2,
+                explanation = "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight, in particular, if it is used, causes significant contributions to GHG emissions, ",
+                questionImage = R.drawable.q2_question_jeans_1
             )
         )
     }

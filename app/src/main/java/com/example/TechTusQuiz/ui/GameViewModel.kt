@@ -75,7 +75,7 @@ class QuizViewModel: ViewModel() {
             return
         }
         val question = _currentQuestion.value ?: return
-        _selectedAnswerExplanation.value = question.Explanation
+        _selectedAnswerExplanation.value = question.explanation
         if (question.correctAnswerIndex == answerIndex) {
             _currentScore.value = (_currentScore.value ?: 0) + 1
         }

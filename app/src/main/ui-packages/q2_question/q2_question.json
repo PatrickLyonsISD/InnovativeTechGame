@@ -1,0 +1,827 @@
+{
+  "name": "q2_question",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "53:10",
+    "version": "4537119720",
+    "component-id": "58c20740c31215cb0669f8bacd21627b641b9728"
+  },
+  "default": "Q2-Question",
+  "documentation": "New Screen layout (ver 2)",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 1"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 3"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 2"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "text",
+        "id": "Which phase of a textiles lifecycle releases the most greenhouse gasses?"
+      },
+      {
+        "type": "text",
+        "id": "Factory"
+      },
+      {
+        "type": "text",
+        "id": "Disposal"
+      },
+      {
+        "type": "text",
+        "id": "Transport"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play1"
+      },
+      {
+        "type": "text",
+        "id": "Score: 0"
+      },
+      {
+        "type": "text",
+        "id": "Q 2"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play2"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play3"
+      },
+      {
+        "type": "text",
+        "id": "Exit"
+      },
+      {
+        "type": "text",
+        "id": "Restart"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 4"
+      },
+      {
+        "type": "image",
+        "id": "jeans 1"
+      },
+      {
+        "type": "image",
+        "id": "factory 1"
+      },
+      {
+        "type": "image",
+        "id": "disposal 1"
+      },
+      {
+        "type": "image",
+        "id": "transport 1"
+      },
+      {
+        "type": "image",
+        "id": "consumer 1"
+      },
+      {
+        "type": "text",
+        "id": "Consumer"
+      }
+    ],
+    "modes": {
+      "Q2-Question": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "pink-210x210 1",
+              "pink-210x210 3",
+              "pink-210x210 2",
+              "Rectangle 1",
+              "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
+              "Factory",
+              "Disposal",
+              "Transport",
+              "Button-Play",
+              "Button-Play1",
+              "Score: 0",
+              "Q 2",
+              "gameLogo 1",
+              "Button-Play2",
+              "Button-Play3",
+              "Exit",
+              "Restart",
+              "pink-210x210 4",
+              "jeans 1",
+              "factory 1",
+              "disposal 1",
+              "transport 1",
+              "consumer 1",
+              "Consumer"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "pink-210x210 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 3",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "495.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "245.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Rectangle 1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "124.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "417.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "137.0"
+              }
+            },
+            "vector-content": "rectangle_1.svg"
+          },
+          {
+            "id": "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "61.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "159.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "299.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "83.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Factory",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "90.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "441.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "80.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Factory",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Disposal",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "306.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "441.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "88.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Disposal",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Transport",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "90.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "655.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "95.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Transport",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Button-Play",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "240.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play.svg"
+          },
+          {
+            "id": "Button-Play1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "139.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "86.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play1.svg"
+          },
+          {
+            "id": "Score: 0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "282.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Score: 0",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Q 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "158.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Q 2",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "gameLogo 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "15.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Button-Play2",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "248.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play2.svg"
+          },
+          {
+            "id": "Button-Play3",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "30.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play3.svg"
+          },
+          {
+            "id": "Exit",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "320.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Exit",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Restart",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "75.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Restart",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "pink-210x210 4",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "248.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "497.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "jeans 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "321.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "150.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "118.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "86.0"
+              }
+            },
+            "image-content": "jeans_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "factory 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "61.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "297.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "143.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "131.0"
+              }
+            },
+            "image-content": "factory_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "disposal 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "280.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "285.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "139.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "156.0"
+              }
+            },
+            "image-content": "disposal_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "transport 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "58.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "509.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "143.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "140.0"
+              }
+            },
+            "image-content": "transport_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "consumer 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "285.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "529.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "125.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "105.0"
+              }
+            },
+            "image-content": "consumer_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Consumer",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "302.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "655.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "108.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Consumer",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Q2-Question",
+      "size": {
+        "width": 480.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

@@ -40,10 +40,10 @@ class QuestionsRepository{
 
                 text = "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
                 options = listOf(
-                    Option(text = "Test list", image = R.drawable.q2_question_factory_1 ),
+                    Option(text = "Factory", image = R.drawable.q2_question_factory_1 ),
                     Option(text = "Disposal", image = R.drawable.q2_question_disposal_1),
                     Option(text = "Transport", image = R.drawable.q2_question_transport_1 ),
-                    Option(text = "Consumer", image = R.drawable.q2_question_factory_1)
+                    Option(text = "Consumer", image = R.drawable.q2_question_consumer_1)
                 ),
                 correctAnswerIndex = 2,
                 explanation = "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight, in particular, if it is used, causes significant contributions to GHG emissions, ",

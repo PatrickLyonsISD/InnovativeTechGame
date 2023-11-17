@@ -1,13 +1,20 @@
 package com.example.TechTusQuiz.ui
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import com.example.unscramble.q2question.inter
-
-
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -15,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,28 +31,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.TechTusQuiz.data.Option
 import com.example.TechTusQuiz.data.Question
-import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import com.example.unscramble.R
 import com.example.unscramble.q2question.ButtonPlay1
-import com.example.unscramble.q2question.ButtonPlay2
-import com.example.unscramble.q2question.ButtonPlay3
-import com.example.unscramble.q2question.Consumer1
-import com.example.unscramble.q2question.Disposal
-import com.example.unscramble.q2question.Disposal1
-import com.example.unscramble.q2question.Factory1
 import com.example.unscramble.q2question.GameLogo1
 import com.example.unscramble.q2question.Jeans1
-import com.example.unscramble.q2question.Pink210x2101
-import com.example.unscramble.q2question.Pink210x2102
-import com.example.unscramble.q2question.Pink210x2103
-import com.example.unscramble.q2question.Pink210x2104
-import com.example.unscramble.q2question.Q2
 import com.example.unscramble.q2question.Q2Question
-import com.example.unscramble.q2question.Rectangle1
-import com.example.unscramble.q2question.Transport
-import com.example.unscramble.q2question.Transport1
-import com.example.unscramble.q2question.WhichPhaseOfATextilesLifecycleReleasesTheMostGreenhouseGasses
+import com.google.relay.compose.ColumnScopeInstanceImpl.align
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayImage
@@ -58,39 +52,53 @@ import com.google.relay.compose.RelayVector
  * Generated code; do not edit directly
  */
 
-@Composable
-fun GameScreen2(gameViewModel: QuizViewModel = viewModel()) {
-    val currentQuestion by gameViewModel.currentQuestion.observeAsState()
-    val currentScore by gameViewModel.currentScore.observeAsState(0)
-    val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
-    val isGameOver by gameViewModel.isGameOver.observeAsState(false)
-    val selectedAnswerExplanation by gameViewModel.selectedAnswerExplanation.observeAsState()
+//@Composable
+//fun GameScreen2(gameViewModel: QuizViewModel = viewModel()) {
+  //  val currentQuestion by gameViewModel.currentQuestion.observeAsState()
+   // val currentScore by gameViewModel.currentScore.observeAsState(0)
+   // val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
+   // val isGameOver by gameViewModel.isGameOver.observeAsState(false)
+   // val selectedAnswerExplanation by gameViewModel.selectedAnswerExplanation.observeAsState()
 
-    Q2Question(
-        currentQuestion = currentQuestion,
-        currentScore = currentScore,
-        currentQuestionIndex = currentQuestionIndex,
-        modifier = Modifier // Your Modifier here
-    )
-}
+   // BoxWithConstraints {
+    //    val constraints = this.constraints
+   //     val largeScreenSize = with(LocalDensity.current) { 480.dp.toPx() }
+
+   //     val isLargeScreen = constraints.maxWidth > largeScreenSize
+
+   // Q2Question(
+   //     isLargeScreen = isLargeScreen,
+    //    currentQuestion = currentQuestion,
+     //   currentScore = currentScore,
+    //    currentQuestionIndex = currentQuestionIndex,
+     //   modifier = Modifier // Your Modifier here
+  //  )
+//}
+//}
 @Composable
 fun Q2Question(
+    isLargeScreen: Boolean,
     currentQuestion: Question?,
     currentScore: Int,
     currentQuestionIndex: Int,
     modifier: Modifier = Modifier
 ) {
     TopLevel(modifier = modifier) {
+        val firstOption = currentQuestion?.options?.getOrNull(0)
+        val secondOption=currentQuestion?.options?.getOrNull(1)
+        val thirdOption=currentQuestion?.options?.getOrNull(2)
+        val fourthOption=currentQuestion?.options?.getOrNull(3)
+
         Pink210x2101(
+            option=firstOption,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 26.0.dp,
-                    y = 276.0.dp
-                )
+                offset = DpOffset(x = 26.0.dp, y = 276.0.dp)
             )
         )
+
         Pink210x2103(
+            option=thirdOption,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
@@ -100,6 +108,7 @@ fun Q2Question(
             )
         )
         Pink210x2102(
+            option=secondOption,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
@@ -109,13 +118,13 @@ fun Q2Question(
             )
         )
         Rectangle1(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 31.0.dp,
-                    y = 124.0.dp
-                )
-            )
+            modifier = Modifier
+                // Position the element with an offset
+                .offset(x = 31.dp, y = 124.dp)
+                // Scale down to fit the width of the screen
+                .fillMaxWidth()
+                // Optionally, add padding if needed
+                .padding(horizontal = 16.dp)
         )
 
 
@@ -130,35 +139,8 @@ fun Q2Question(
         }
         
 
-        currentAnswer?.let { answer ->
-        Factory(
-            AnswerText= answer.text,
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 90.0.dp,
-                    y = 441.0.dp
-                )
-            )
-        }
-        Disposal(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 306.0.dp,
-                    y = 441.0.dp
-                )
-            )
-        )
-        Transport(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 90.0.dp,
-                    y = 655.0.dp
-                )
-            )
-        )
+
+
         ButtonPlay(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
@@ -199,7 +181,7 @@ fun Q2Question(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
-                    x = 31.0.dp,
+                    x = 5.0.dp,
                     y = 15.0.dp
                 )
             )
@@ -222,7 +204,7 @@ fun Q2Question(
                 )
             )
         )
-        Exit(
+        Exit1(
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
@@ -241,6 +223,7 @@ fun Q2Question(
             )
         )
         Pink210x2104(
+            option=fourthOption,
             modifier = Modifier.boxAlign(
                 alignment = Alignment.TopStart,
                 offset = DpOffset(
@@ -258,55 +241,13 @@ fun Q2Question(
                 )
             )
         )
-        Factory1(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 61.0.dp,
-                    y = 297.0.dp
-                )
-            )
-        )
-        Disposal1(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 280.0.dp,
-                    y = 285.0.dp
-                )
-            )
-        )
-        Transport1(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 58.0.dp,
-                    y = 509.0.dp
-                )
-            )
-        )
-        Consumer1(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 285.0.dp,
-                    y = 529.0.dp
-                )
-            )
-        )
-        Consumer(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 302.0.dp,
-                    y = 655.0.dp
-                )
-            )
-        )
+
+
+
     }
 }
 
-//@Preview(widthDp = 480, heightDp = 800)
+
 
 @Composable
 private fun Q2QuestionPreview() {
@@ -320,45 +261,37 @@ private fun Q2QuestionPreview() {
 }
 
 @Composable
-fun Pink210x2101(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.q2_question_pink_210x210_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier
-            .requiredWidth(210.0.dp)
-            .requiredHeight(210.0.dp)
-    )
+fun Pink210x2101(option: Option?,
+                 modifier: Modifier = Modifier
+) {
+    OptionBox(option = option, modifier = modifier)
+}
+
+
+
+@Composable
+fun Pink210x2103( option: Option?,
+                  modifier: Modifier = Modifier
+) {
+    OptionBox(option = option, modifier = modifier)
 }
 
 @Composable
-fun Pink210x2103(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.q2_question_pink_210x210_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier
-            .requiredWidth(210.0.dp)
-            .requiredHeight(210.0.dp)
-    )
-}
-
-@Composable
-fun Pink210x2102(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.q2_question_pink_210x210_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier
-            .requiredWidth(210.0.dp)
-            .requiredHeight(210.0.dp)
-    )
+fun Pink210x2102( option: Option?,
+                  modifier: Modifier = Modifier
+) {
+    OptionBox(option = option, modifier = modifier)
 }
 
 @Composable
 fun Rectangle1(modifier: Modifier = Modifier) {
+    val aspectRatio = 3.0f
     RelayVector(
         vector = painterResource(R.drawable.q2_question_rectangle_1),
         modifier = modifier
-            .requiredWidth(417.0.dp)
-            .requiredHeight(137.0.dp)
+            .fillMaxWidth() // Replace someWidth with the desired width value
+            .aspectRatio(aspectRatio)
+            .align(Alignment.Start)
     )
 }
 @Composable
@@ -374,7 +307,9 @@ fun WhichPhaseOfATextilesLifecycleReleasesTheMostGreenhouseGasses(
         height = 1.2102272033691406.em,
         textAlign = TextAlign.Left,
         maxLines = -1,
-        modifier = modifier.requiredWidth(299.0.dp).requiredHeight(83.0.dp)
+        modifier = modifier
+            .requiredWidth(299.0.dp)
+            .requiredHeight(83.0.dp)
     )
 }
 
@@ -440,14 +375,38 @@ fun Transport(modifier: Modifier = Modifier) {
             .requiredHeight(27.0.dp)
     )
 }
+@Composable
+fun ResponsiveLayout() {
+    BoxWithConstraints {
+        // Use LocalDensity.current to access the Density object
+        val maxWidthPx = with(LocalDensity.current) { 600.dp.toPx() }
 
+        if (constraints.maxWidth < maxWidthPx) {
+            // Layout for small screens
+            SmallScreenContent()
+        } else {
+            // Layout for larger screens
+            LargeScreenContent()
+        }
+    }
+}
+
+@Composable
+fun SmallScreenContent() {
+    // Define the UI for small screens
+}
+
+@Composable
+fun LargeScreenContent() {
+    // Define the UI for larger screens
+}
 @Composable
 fun ButtonPlay(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.q2_question_button_play),
         modifier = modifier
-            .requiredWidth(210.0.dp)
-            .requiredHeight(65.0.dp)
+            .requiredWidth(150.dp) // Adjust as needed
+            .requiredHeight(50.dp) // Adjust as needed
     )
 }
 
@@ -465,7 +424,7 @@ fun ButtonPlay1(modifier: Modifier = Modifier) {
 fun Score0(score: Int, modifier: Modifier = Modifier) {
     RelayText(
         content = "Score: $score",
-        fontSize = 32.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = inter,
         color = Color(
             alpha = 255,
@@ -484,7 +443,7 @@ fun Score0(score: Int, modifier: Modifier = Modifier) {
 fun Q2(questionNumber: Int, modifier: Modifier = Modifier) {
     RelayText(
         content = "Q ${questionNumber + 1}", // Adding 1 because index starts from 0
-        fontSize = 32.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = inter,
         color = Color(
             alpha = 255,
@@ -512,7 +471,7 @@ fun GameLogo1(modifier: Modifier = Modifier) {
 @Composable
 fun ButtonPlay2(modifier: Modifier = Modifier) {
     RelayVector(
-        vector = painterResource(R.drawable.q2_question_button_play2),
+        vector = painterResource(R.drawable.q2_question_button_play),
         modifier = modifier
             .requiredWidth(200.0.dp)
             .requiredHeight(65.0.dp)
@@ -522,7 +481,7 @@ fun ButtonPlay2(modifier: Modifier = Modifier) {
 @Composable
 fun ButtonPlay3(modifier: Modifier = Modifier) {
     RelayVector(
-        vector = painterResource(R.drawable.q2_question_button_play3),
+        vector = painterResource(R.drawable.q2_question_button_play),
         modifier = modifier
             .requiredWidth(200.0.dp)
             .requiredHeight(65.0.dp)
@@ -530,10 +489,10 @@ fun ButtonPlay3(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Exit(modifier: Modifier = Modifier) {
+fun Exit1(modifier: Modifier = Modifier) {
     RelayText(
         content = "Exit",
-        fontSize = 32.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = inter,
         color = Color(
             alpha = 255,
@@ -551,7 +510,7 @@ fun Exit(modifier: Modifier = Modifier) {
 fun Restart(modifier: Modifier = Modifier) {
     RelayText(
         content = "Restart",
-        fontSize = 32.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = inter,
         color = Color(
             alpha = 255,
@@ -566,16 +525,54 @@ fun Restart(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Pink210x2104(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.q2_question_pink_210x210_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier
-            .requiredWidth(210.0.dp)
-            .requiredHeight(210.0.dp)
-    )
+fun Pink210x2104(option: Option?,
+modifier: Modifier = Modifier
+) {
+    OptionBox(option = option, modifier = modifier)
 }
 
+@Composable
+fun OptionBox(
+    option: Option?,
+    modifier: Modifier
+) {
+    Box(modifier = modifier.size(210.dp)) {  // Ensure each option box is the same size
+        // Background Image
+        RelayImage(
+            image = painterResource(R.drawable.q2_question_answer_image),
+            modifier = Modifier
+                .fillMaxWidth(1f) // Adjust this value to scale the width
+                .fillMaxHeight(1f)
+
+        )
+
+        option?.let { opt ->
+            Column(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(1.dp)
+            ) {
+                Image(
+                    painter = painterResource(id = opt.image),
+                    contentDescription = opt.text,
+                    modifier = Modifier
+                        .size(100.dp) // Standardize the size of images
+                        .align(Alignment.CenterHorizontally)
+
+                )
+
+                Text(
+                    text = opt.text,
+                    fontSize = 16.sp, // Standardize the text size
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+
+                )
+            }
+        }
+    }
+}
 @Composable
 fun Jeans1(modifier: Modifier = Modifier) {
     RelayImage(
@@ -631,32 +628,13 @@ fun Consumer1(modifier: Modifier = Modifier) {
     )
 }
 
-@Composable
-fun Consumer(modifier: Modifier = Modifier) {
-    RelayText(
-        content = "Consumer",
-        fontSize = 20.0.sp,
-        fontFamily = inter,
-        color = Color(
-            alpha = 255,
-            red = 0,
-            green = 0,
-            blue = 0
-        ),
-        height = 1.2102272033691406.em,
-        textAlign = TextAlign.Left,
-        maxLines = -1,
-        modifier = modifier
-            .requiredWidth(108.0.dp)
-            .requiredHeight(27.0.dp)
-    )
-}
+
 
 @Composable
 @Preview
 fun ScreenPreview() {
 
-        GameScreen2()
+
 
 }
 

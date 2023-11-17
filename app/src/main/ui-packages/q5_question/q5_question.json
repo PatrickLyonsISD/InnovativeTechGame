@@ -1,0 +1,472 @@
+{
+  "name": "q5_question",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "82:10",
+    "version": "4595934736",
+    "component-id": "7dbe9508a0f396da45f4e6a6c6546bc4f31c3506"
+  },
+  "default": "Q5-Question",
+  "documentation": "using this frame as a base ",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 1"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 3"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 2"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play1"
+      },
+      {
+        "type": "text",
+        "id": "Score: 0"
+      },
+      {
+        "type": "text",
+        "id": "Q 5"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play2"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play3"
+      },
+      {
+        "type": "text",
+        "id": "Exit"
+      },
+      {
+        "type": "text",
+        "id": "Restart"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 4"
+      }
+    ],
+    "modes": {
+      "Q5-Question": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "pink-210x210 1",
+              "pink-210x210 3",
+              "pink-210x210 2",
+              "Rectangle 1",
+              "Button-Play",
+              "Button-Play1",
+              "Score: 0",
+              "Q 5",
+              "gameLogo 1",
+              "Button-Play2",
+              "Button-Play3",
+              "Exit",
+              "Restart",
+              "pink-210x210 4"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "pink-210x210 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 3",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "495.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "245.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Rectangle 1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "124.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "417.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "137.0"
+              }
+            },
+            "vector-content": "rectangle_1.svg"
+          },
+          {
+            "id": "Button-Play",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "240.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play.svg"
+          },
+          {
+            "id": "Button-Play1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "139.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "86.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play1.svg"
+          },
+          {
+            "id": "Score: 0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "282.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Score: 0",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Q 5",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "158.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Q 5",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "gameLogo 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "15.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Button-Play2",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "248.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play2.svg"
+          },
+          {
+            "id": "Button-Play3",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "30.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play3.svg"
+          },
+          {
+            "id": "Exit",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "320.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Exit",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Restart",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "75.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Restart",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "pink-210x210 4",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "248.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "497.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Q5-Question",
+      "size": {
+        "width": 480.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

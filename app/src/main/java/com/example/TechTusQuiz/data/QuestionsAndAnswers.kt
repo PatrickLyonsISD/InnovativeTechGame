@@ -37,7 +37,6 @@ class QuestionsRepository{
     fun getQuestions(): List<Question>{
         return listOf(
             Question(
-
                 text = "Which phase of a textiles lifecycle releases the most greenhouse gasses?",
                 options = listOf(
                     Option(text = "Factory", image = R.drawable.q2_question_factory_1 ),

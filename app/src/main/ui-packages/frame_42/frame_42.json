@@ -1,0 +1,621 @@
+{
+  "name": "frame_42",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "119:75",
+    "version": "4627417184",
+    "component-id": "4a89d3eaffc1c43eca8b09c4cb601f9dfa429333"
+  },
+  "default": "Frame 42",
+  "documentation": "trying again new layout",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Frame 52"
+      },
+      {
+        "type": "group",
+        "id": "Frame 51"
+      },
+      {
+        "type": "group",
+        "id": "Frame 50"
+      },
+      {
+        "type": "group",
+        "id": "Frame 43"
+      },
+      {
+        "type": "group",
+        "id": "Frame 44"
+      },
+      {
+        "type": "group",
+        "id": "Frame 45"
+      },
+      {
+        "type": "group",
+        "id": "Frame 46"
+      },
+      {
+        "type": "group",
+        "id": "Frame 47"
+      },
+      {
+        "type": "group",
+        "id": "Frame 48"
+      },
+      {
+        "type": "group",
+        "id": "Frame 49"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "text",
+        "id": "QustionNum"
+      },
+      {
+        "type": "text",
+        "id": "Score"
+      },
+      {
+        "type": "vector",
+        "id": "QuestionBox"
+      },
+      {
+        "type": "vector",
+        "id": "Answer1"
+      },
+      {
+        "type": "vector",
+        "id": "Answer2"
+      },
+      {
+        "type": "vector",
+        "id": "Answer3"
+      },
+      {
+        "type": "vector",
+        "id": "Answer4"
+      },
+      {
+        "type": "vector",
+        "id": "RestartButton"
+      },
+      {
+        "type": "vector",
+        "id": "ExitButton"
+      }
+    ],
+    "modes": {
+      "Frame 42": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Frame 52",
+              "Frame 51",
+              "Frame 50",
+              "Frame 43",
+              "Frame 44",
+              "Frame 45",
+              "Frame 46",
+              "Frame 47",
+              "Frame 48",
+              "Frame 49"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "Frame 52",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "20.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "120.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "120.0"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "gameLogo 1"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 51",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "195.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "39.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "74.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "QustionNum"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 50",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "383.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "39.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "146.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "arrangement": "row",
+            "children": [
+              "Score"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 43",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "139.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "442.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "194.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "QuestionBox"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 44",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "348.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "442.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "104.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer1"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 45",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "467.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "442.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "104.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer2"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 46",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "57.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "586.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "442.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "104.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer3"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 47",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "705.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "442.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "104.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer4"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 48",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "57.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "824.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "220.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "85.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "RestartButton"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 49",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "283.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "824.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "220.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "85.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "ExitButton"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "gameLogo 1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "QustionNum",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Q 6",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Score",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Score: 0",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "QuestionBox",
+            "border-radius": "21.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "question_box.svg"
+          },
+          {
+            "id": "Answer1",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "answer1.svg"
+          },
+          {
+            "id": "Answer2",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "answer2.svg"
+          },
+          {
+            "id": "Answer3",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "answer3.svg"
+          },
+          {
+            "id": "Answer4",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "answer4.svg"
+          },
+          {
+            "id": "RestartButton",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "restart_button.svg"
+          },
+          {
+            "id": "ExitButton",
+            "border-radius": "45.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "exit_button.svg"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Frame 42",
+      "size": {
+        "width": 555.0,
+        "height": 933.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

@@ -3,27 +3,21 @@ package com.example.TechTusQuiz.ui
 
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absolutePadding
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
@@ -51,10 +45,10 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.TechTusQuiz.data.Option
 import com.example.TechTusQuiz.data.Question
 import com.example.TechTusQuiz.data.QuestionsRepository
-import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import com.example.unscramble.R
 import com.google.relay.compose.BoxScopeInstanceImpl.align
 import com.google.relay.compose.CrossAxisAlignment
@@ -64,10 +58,9 @@ import com.google.relay.compose.RelayContainerArrangement
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayImage
 import com.google.relay.compose.RelayVector
-import com.google.relay.compose.RowScopeInstanceImpl.align
 
 @Composable
-fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
+fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel = viewModel()) {
     val currentQuestion by gameViewModel.currentQuestion.observeAsState()
     val currentScore by gameViewModel.currentScore.observeAsState(0)
     val isGameOver by gameViewModel.isGameOver.observeAsState(false)
@@ -88,31 +81,34 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
 
         Box(modifier = Modifier.fillMaxSize())
 
-
         LaunchedEffect(explanation) {
             if (!explanation.isNullOrEmpty()) {
                 showDialog = true
             }
         }
 
-        // Dialog
         if (showDialog) {
             ExplanationDialog(
                 explanation = explanation ?: "",
                 isCorrect = isCorrect,
                 onDismiss = {
                     showDialog = false
-                    gameViewModel.resetExplanation() // Reset explanation for next question
+                    gameViewModel.resetExplanation()
+                    if (gameViewModel.isGameOver.value != true) {
+                        gameViewModel.proceedToNextQuestion()
+                    }
                 }
             )
         }
     }
+
+    if (gameViewModel.isGameOver.value == true) {
+        LaunchedEffect(Unit) {
+            val score = gameViewModel.currentScore.value ?: 0
+            navController.navigate("gameOverScreen/$score")
+        }
+    }
 }
-
-
-
-
-
 
 
     /**
@@ -121,6 +117,23 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
      * This composable was generated from the UI Package 'android_small_1'.
      * Generated code; do not edit directly
      */
+
+    @Composable
+    fun GameOverScreen(gameViewModel: QuizViewModel) {
+        // Assuming you have a currentScore LiveData in your ViewModel
+        val score by gameViewModel.currentScore.observeAsState(0)
+
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text("Game Over!", fontSize = 24.sp)
+                Text("Your score: $score", fontSize = 20.sp)
+                Button(onClick = { gameViewModel.resetGame() }) {
+                    Text("Play Again")
+                }
+                // Add more buttons or actions as needed
+            }
+        }
+    }
     @Composable
     fun AndroidSmall1(question: Question, gameViewModel: QuizViewModel, questionIndex: Int, currentScore: Int, modifier: Modifier = Modifier) {
         TopLevel3(modifier = modifier) {
@@ -245,6 +258,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
             }
         }
     }
+
 
 
     @Composable
@@ -642,7 +656,7 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
                     .clickable { gameViewModel.submitAnswer(2)}
                     .requiredWidth(200.dp)
                     .requiredHeight(200.dp)
-                    .padding(20.dp)// This ensures the background image fills the box
+                    .padding(20.dp)
             )
 
             // Layout for the option content

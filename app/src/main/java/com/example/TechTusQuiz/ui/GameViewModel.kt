@@ -50,6 +50,13 @@ class QuizViewModel: ViewModel() {
     private val _isLastAnswerCorrect = MutableLiveData<Boolean?>()
     val isLastAnswerCorrect: LiveData<Boolean?> = _isLastAnswerCorrect
 
+    private val _score = MutableLiveData(0)
+    val score: LiveData<Int> = _score
+
+    fun updateScore(newScore: Int) {
+        _score.value = newScore
+    }
+
     init {
         loadQuestions()
         _currentQuestion.addSource(_questions) { questions ->
@@ -86,7 +93,8 @@ class QuizViewModel: ViewModel() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
         if (nextIndex < (_questions.value?.size ?: 0)) {
             _currentQuestionIndex.value = nextIndex
-            _isLastAnswerCorrect.value = null
+        } else {
+            _isGameOver.value = true
         }
     }
     private fun moveToNextQuestion() {
@@ -106,4 +114,6 @@ class QuizViewModel: ViewModel() {
     private fun checkGameOver() {
         _isGameOver.value = (_currentQuestionIndex.value ?: 0) >= (_questions.value?.size ?: 0)
     }
+
+
 }

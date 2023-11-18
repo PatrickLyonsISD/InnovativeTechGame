@@ -47,6 +47,9 @@ class QuizViewModel: ViewModel() {
 
     private val questionsRepository = QuestionsRepository()
 
+    private val _isLastAnswerCorrect = MutableLiveData<Boolean?>()
+    val isLastAnswerCorrect: LiveData<Boolean?> = _isLastAnswerCorrect
+
     init {
         loadQuestions()
         _currentQuestion.addSource(_questions) { questions ->
@@ -71,25 +74,20 @@ class QuizViewModel: ViewModel() {
     }
 
     fun submitAnswer(answerIndex: Int) {
-        if (_isGameOver.value == true) {
-            return
-        }
         val question = _currentQuestion.value ?: return
+        val isCorrect = question.correctAnswerIndex == answerIndex
+        _isLastAnswerCorrect.value = isCorrect
+        _currentScore.value = (_currentScore.value ?: 0) + if (isCorrect) 1 else 0
         _selectedAnswerExplanation.value = question.explanation
-        if (question.correctAnswerIndex == answerIndex) {
-            _currentScore.value = (_currentScore.value ?: 0) + 1
-        }
-        // Don't move to the next question immediately
+
     }
 
     fun proceedToNextQuestion() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
         if (nextIndex < (_questions.value?.size ?: 0)) {
             _currentQuestionIndex.value = nextIndex
-        } else {
-            _isGameOver.value = true
+            _isLastAnswerCorrect.value = null
         }
-        resetExplanation()
     }
     private fun moveToNextQuestion() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1

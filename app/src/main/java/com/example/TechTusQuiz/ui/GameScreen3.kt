@@ -24,11 +24,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -44,6 +54,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.TechTusQuiz.data.Option
 import com.example.TechTusQuiz.data.Question
 import com.example.TechTusQuiz.data.QuestionsRepository
+import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 import com.example.unscramble.R
 import com.google.relay.compose.BoxScopeInstanceImpl.align
 import com.google.relay.compose.CrossAxisAlignment
@@ -57,20 +68,51 @@ import com.google.relay.compose.RowScopeInstanceImpl.align
 
 @Composable
 fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
-        val currentQuestion by gameViewModel.currentQuestion.observeAsState()
-        val currentScore by gameViewModel.currentScore.observeAsState(0)
-        val isGameOver by gameViewModel.isGameOver.observeAsState(false)
-        val selectedAnswerExplanation by gameViewModel.selectedAnswerExplanation.observeAsState()
-        val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
+    val currentQuestion by gameViewModel.currentQuestion.observeAsState()
+    val currentScore by gameViewModel.currentScore.observeAsState(0)
+    val isGameOver by gameViewModel.isGameOver.observeAsState(false)
+    val explanation by gameViewModel.selectedAnswerExplanation.observeAsState()
+    val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
+    val isCorrect by gameViewModel.isLastAnswerCorrect.observeAsState()
 
-        currentQuestion?.let { question ->
-            AndroidSmall1(question, currentQuestionIndex, currentScore, modifier = Modifier)
+    var showDialog by remember { mutableStateOf(false) }
 
-            Box(modifier=Modifier.fillMaxSize())
+    currentQuestion?.let { question ->
+        AndroidSmall1(
+            question,
+            gameViewModel,
+            currentQuestionIndex,
+            currentScore,
+            modifier = Modifier
+        )
+
+        Box(modifier = Modifier.fillMaxSize())
 
 
+        LaunchedEffect(explanation) {
+            if (!explanation.isNullOrEmpty()) {
+                showDialog = true
+            }
+        }
+
+        // Dialog
+        if (showDialog) {
+            ExplanationDialog(
+                explanation = explanation ?: "",
+                isCorrect = isCorrect,
+                onDismiss = {
+                    showDialog = false
+                    gameViewModel.resetExplanation() // Reset explanation for next question
+                }
+            )
         }
     }
+}
+
+
+
+
+
 
 
     /**
@@ -80,7 +122,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
      * Generated code; do not edit directly
      */
     @Composable
-    fun AndroidSmall1(question: Question, questionIndex: Int, currentScore: Int, modifier: Modifier = Modifier) {
+    fun AndroidSmall1(question: Question, gameViewModel: QuizViewModel, questionIndex: Int, currentScore: Int, modifier: Modifier = Modifier) {
         TopLevel3(modifier = modifier) {
             Frame9(
                 modifier = Modifier.boxAlign(
@@ -141,6 +183,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
             ) {
                 Answer2(
                     option = question.options[1],
+                    gameViewModel = gameViewModel,
                     modifier = Modifier.size(150.dp)
                 )
             }
@@ -155,6 +198,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
             ) {
                 Answer1(
                     option = question.options.firstOrNull(),
+                    gameViewModel = gameViewModel,
                     modifier = Modifier.size(150.dp)
                 )
             }
@@ -168,6 +212,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
                 )
             ) {
                 Answer4(option = question.options[3],
+                    gameViewModel = gameViewModel,
                     modifier = Modifier.size(150.dp)
                 )
             }
@@ -181,6 +226,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
                 )
             ) {
                 Answer3( option = question.options[2],
+                    gameViewModel = gameViewModel,
                     modifier = Modifier.size(150.dp)
                 )
             }
@@ -200,29 +246,6 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
         }
     }
 
-    @Preview
-    @Composable
-    private fun AndroidSmall1Preview() {
-        val questionsRepository = QuestionsRepository()
-        val questionsList = questionsRepository.getQuestions()
-
-        // Take the first question or any specific one you want to display in the preview
-        val mockQuestion = questionsList.first()
-        val mockScore = 0 // Mock score
-
-        MaterialTheme {
-            RelayContainer {
-                AndroidSmall1(
-                    question = mockQuestion,
-                    questionIndex = 0,
-                    currentScore = mockScore,
-                    modifier = Modifier
-                        .rowWeight(1.0f)
-                        .columnWeight(1.0f)
-                )
-            }
-        }
-    }
 
     @Composable
     fun GameLogo3(modifier: Modifier = Modifier) {
@@ -264,7 +287,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
             )
 
             Text(
-                text = "Q${questionNumber}",
+                text = "Q ${questionNumber}",
                 fontSize = 40.sp,
                 color = Color.Black,
                 modifier = Modifier
@@ -299,7 +322,7 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
 
             Text(
                 text = "Score: $score", // Display the score
-                fontSize = 35.sp,
+                fontSize = 28.sp,
                 color = Color.Black,
                 modifier = Modifier.align(Alignment.Center) // Center the text inside the Box
             )
@@ -368,7 +391,34 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
             }
         }
     }
-    @Composable
+
+@Composable
+fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () -> Unit) {
+    val icon = when (isCorrect) {
+        true -> Icons.Default.Check // Tick icon for correct answer
+        false -> Icons.Default.Close // Cross icon for incorrect answer
+        else -> null // No icon if null
+    }
+
+    AlertDialog(
+        onDismissRequest = { /* Do nothing, require explicit dismissal */ },
+        title = {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                icon?.let { Icon(it, contentDescription = null) }
+                Spacer(Modifier.width(8.dp))
+                Text("Explanation")
+            }
+        },
+        text = { Text(explanation) },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("OK")
+            }
+        }
+    )
+}
+
+@Composable
     fun Frame7(
         modifier: Modifier = Modifier,
         content: @Composable RelayContainerScope.() -> Unit
@@ -387,16 +437,21 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
     }
 
     @Composable
-    fun Answer2(option: Option?, modifier: Modifier = Modifier) {
-        Box(modifier = modifier) {
+    fun Answer2(option: Option?, gameViewModel: QuizViewModel, modifier: Modifier = Modifier)
+    {
+        Box(
+            modifier = modifier
+                .clickable { gameViewModel.submitAnswer(1) }
+        ) {
             // Background Image
             RelayImage(
                 image = painterResource(R.drawable.android_small_1_answer_2),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .clickable { gameViewModel.submitAnswer(1)}
                     .requiredWidth(200.dp)
                     .requiredHeight(200.dp)
-                    .padding(20.dp)
+                    .padding(20.dp)// This ensures the background image fills the box
             )
 
             // Layout for the option content
@@ -445,13 +500,18 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
     }
 
     @Composable
-    fun Answer1(option: Option?, modifier: Modifier = Modifier) {
-        Box(modifier = modifier) {
+    fun Answer1(option: Option?, gameViewModel: QuizViewModel, modifier: Modifier = Modifier)
+    {
+        Box(
+            modifier = modifier
+                .clickable { gameViewModel.submitAnswer(0) }
+        ) {
             // Background Image
             RelayImage(
                 image = painterResource(R.drawable.android_small_1_answer_2),
-                contentScale = ContentScale.Fit,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .clickable { gameViewModel.submitAnswer(0)}
                     .requiredWidth(200.dp)
                     .requiredHeight(200.dp)
                     .padding(20.dp)// This ensures the background image fills the box
@@ -504,16 +564,21 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
     }
 
     @Composable
-    fun Answer4(option: Option?, modifier: Modifier = Modifier) {
-        Box(modifier = modifier) {
+    fun Answer4(option: Option?, gameViewModel: QuizViewModel, modifier: Modifier = Modifier)
+    {
+        Box(
+            modifier = modifier
+                .clickable { gameViewModel.submitAnswer(3) }
+        ) {
             // Background Image
             RelayImage(
                 image = painterResource(R.drawable.android_small_1_answer_2),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .clickable { gameViewModel.submitAnswer(3)}
                     .requiredWidth(200.dp)
                     .requiredHeight(200.dp)
-                    .padding(20.dp)
+                    .padding(20.dp)// This ensures the background image fills the box
             )
 
             // Layout for the option content
@@ -563,13 +628,18 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
     }
 
     @Composable
-    fun Answer3(option: Option?, modifier: Modifier = Modifier) {
-        Box(modifier = modifier) {
+    fun Answer3(option: Option?, gameViewModel: QuizViewModel, modifier: Modifier = Modifier)
+    {
+        Box(
+            modifier = modifier
+                .clickable { gameViewModel.submitAnswer(2) }
+        ) {
             // Background Image
             RelayImage(
                 image = painterResource(R.drawable.android_small_1_answer_2),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .clickable { gameViewModel.submitAnswer(2)}
                     .requiredWidth(200.dp)
                     .requiredHeight(200.dp)
                     .padding(20.dp)// This ensures the background image fills the box
@@ -715,3 +785,30 @@ fun GameScreen3(gameViewModel: QuizViewModel= viewModel()) {
     }
 
 
+@Preview
+@Composable
+private fun AndroidSmall1Preview(gameViewModel: QuizViewModel= viewModel()) {
+    val questionsRepository = QuestionsRepository()
+    val questionsList = questionsRepository.getQuestions()
+
+    // Create a mock question and score
+    val mockQuestion = questionsList.first()
+    val mockScore = 0 // Mock score
+
+    // Create a mock view model
+    val mockViewModel = gameViewModel
+
+    MaterialTheme {
+        RelayContainer {
+            AndroidSmall1(
+                question = mockQuestion,
+                gameViewModel = mockViewModel, // Pass the mock view model
+                questionIndex = 0,
+                currentScore = mockScore,
+                modifier = Modifier
+                    .rowWeight(1.0f)
+                    .columnWeight(1.0f)
+            )
+        }
+    }
+}

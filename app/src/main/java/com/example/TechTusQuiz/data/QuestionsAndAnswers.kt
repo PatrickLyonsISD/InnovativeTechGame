@@ -47,7 +47,21 @@ class QuestionsRepository{
                 correctAnswerIndex = 2,
                 explanation = "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight, in particular, if it is used, causes significant contributions to GHG emissions, ",
                 questionImage = R.drawable.q2_question_jeans_1
+            ),
+            Question(
+                text = "What material is not included in most recycling programs?",
+                options = listOf(
+                    Option(text = "Paper", image = R.drawable.q3_question_pink_210x210_1),
+                    Option(text = "Plastic", image = R.drawable.q3_question_plastic541_1),
+                    Option(text = "Styrofoam", image = R.drawable.q3_question_styrofoam_1),
+                    Option(text = "Glass", image = R.drawable.q3_question_glass_640x380_1)
+                ),
+                correctAnswerIndex = 2,
+                explanation = "Styrofoam is not commonly recyclable in most recycling programs. It is a non-biodegradable material that often ends up in landfills. ",
+                questionImage = R.drawable.q3_question_reuse_1
             )
+
+
         )
     }
 }

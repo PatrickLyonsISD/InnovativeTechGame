@@ -3,11 +3,14 @@ package com.example.TechTusQuiz.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.absolutePadding
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.unscramble.R
 import com.example.unscramble.frame27.inter
 import com.google.relay.compose.CrossAxisAlignment
@@ -53,16 +57,25 @@ fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentS
                                 Frame22 {
                                     Frame21 {
                                         Frame20 {
-                                            GameLogo4(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                                            GameLogo4(modifier = Modifier
+                                                .rowWeight(1.0f)
+                                                .columnWeight(1.0f))
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    Frame30(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-                        Frame29(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-                            Rectangle4(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                    Frame30(modifier = Modifier
+                        .rowWeight(1.0f)
+                        .columnWeight(1.0f)) {
+                        Frame29(modifier = Modifier
+                            .rowWeight(1.0f)
+                            .columnWeight(1.0f)) {
+                            Rectangle4(modifier = Modifier
+                                .rowWeight(1.0f)
+                                .columnWeight(1.0f))
+
                         }
                     }
                     Frame25(modifier = Modifier.rowWeight(1.0f)) {
@@ -73,7 +86,7 @@ fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentS
                     modifier = Modifier.boxAlign(
                         alignment = Alignment.TopStart,
                         offset = DpOffset(
-                            x = 88.0.dp,
+                            x = 68.0.dp,
                             y = 344.0.dp
                         )
                     )
@@ -82,7 +95,7 @@ fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentS
                     modifier = Modifier.boxAlign(
                         alignment = Alignment.TopStart,
                         offset = DpOffset(
-                            x = 74.0.dp,
+                            x = 68.0.dp,
                             y = 495.0.dp
                         )
                     )
@@ -97,8 +110,9 @@ fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentS
                     modifier = Modifier
                         .boxAlign(
                             alignment = Alignment.TopStart,
-                            offset = DpOffset(x = 162.dp, y = 676.dp)
+                            offset = DpOffset(x = 100.dp, y = 676.dp)
                         )
+
                 )
 
             }
@@ -111,20 +125,23 @@ fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentS
 fun GameLogo4(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.frame_27_game_logo_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f).relayDropShadow(
-            color = Color(
-                alpha = 63,
-                red = 0,
-                green = 0,
-                blue = 0
-            ),
-            borderRadius = 0.0.dp,
-            blur = 2.0.dp,
-            offsetX = 4.0.dp,
-            offsetY = 4.0.dp,
-            spread = 0.0.dp
-        )
+        contentScale = ContentScale.Fit,
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
+            .relayDropShadow(
+                color = Color(
+                    alpha = 0,
+                    red = 0,
+                    green = 0,
+                    blue = 0
+                ),
+                borderRadius = 0.0.dp,
+                blur = 2.0.dp,
+                offsetX = 4.0.dp,
+                offsetY = 4.0.dp,
+                spread = 0.0.dp
+            )
     )
 }
 
@@ -138,7 +155,9 @@ fun Frame20(
         itemSpacing = 10.0,
         clipToParent = false,
         content = content,
-        modifier = modifier.requiredWidth(417.0.dp).requiredHeight(220.0.dp)
+        modifier = modifier
+            .requiredWidth(417.0.dp)
+            .requiredHeight(220.0.dp)
     )
 }
 
@@ -152,7 +171,9 @@ fun Frame21(
         itemSpacing = 10.0,
         clipToParent = false,
         content = content,
-        modifier = modifier.requiredWidth(417.0.dp).requiredHeight(220.0.dp)
+        modifier = modifier
+            .requiredWidth(417.0.dp)
+            .requiredHeight(220.0.dp)
     )
 }
 
@@ -216,7 +237,8 @@ fun Frame28(
 fun Rectangle4(modifier: Modifier = Modifier) {
     RelayVector(
         vector = painterResource(R.drawable.frame_27_rectangle_1),
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .absolutePadding(right=50.dp)
     )
 }
 
@@ -230,7 +252,9 @@ fun Frame29(
         itemSpacing = 10.0,
         clipToParent = false,
         content = content,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -244,16 +268,21 @@ fun Frame30(
         itemSpacing = 10.0,
         clipToParent = false,
         content = content,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
 @Composable
 fun ButtonPlay4(modifier: Modifier = Modifier) {
     RelayVector(
-        vector = painterResource(R.drawable.frame_27_button_play),
-        modifier = modifier.requiredWidth(305.0.dp).requiredHeight(81.0.dp)
+        modifier = modifier
+            .requiredWidth(305.0.dp)
+            .requiredHeight(81.0.dp)
+
     )
+
 }
 
 @Composable
@@ -285,7 +314,9 @@ fun WinScreenSynth(
         ),
         itemSpacing = 45.0,
         content = content,
-        modifier = modifier.requiredHeight(764.0.dp).alpha(alpha = 100.0f)
+        modifier = modifier
+            .requiredHeight(764.0.dp)
+            .alpha(alpha = 100.0f)
     )
 }
 
@@ -304,7 +335,9 @@ fun ThanksForPlaying(modifier: Modifier = Modifier) {
         height = 1.2102272510528564.em,
         textAlign = TextAlign.Left,
         maxLines = -1,
-        modifier = modifier.requiredWidth(331.0.dp).requiredHeight(56.0.dp)
+        modifier = modifier
+            .requiredWidth(291.0.dp)
+            .requiredHeight(56.0.dp)
     )
 }
 
@@ -323,7 +356,9 @@ fun YourFinalScoreWas(score: Int, modifier: Modifier = Modifier) {
         height = 1.2102272510528564.em,
         textAlign = TextAlign.Left,
         maxLines = -1,
-        modifier = modifier.requiredWidth(331.0.dp).requiredHeight(56.0.dp)
+        modifier = modifier
+            .requiredWidth(331.0.dp)
+            .requiredHeight(56.0.dp)
     )
 }
 
@@ -333,12 +368,7 @@ fun PlayAgain(onClick: () -> Unit, modifier: Modifier = Modifier) {
         content = "Play Again",
         fontSize = 32.0.sp,
         fontFamily = inter,
-        color = Color(
-            alpha = 255,
-            red = 0,
-            green = 0,
-            blue = 0
-        ),
+        color = Color.White,
         height = 1.2102272510528564.em,
         textAlign = TextAlign.Left,
         modifier = modifier
@@ -399,7 +429,13 @@ fun TopLevel4(
 @Preview
 @Composable
 private fun Frame27Preview() {
-    MaterialTheme {
-        com.example.unscramble.frame27.Frame27()
-    }
+    val navController = rememberNavController()
+
+    // Mock ViewModel
+    val mockViewModel = QuizViewModel()
+
+    // Mock Score
+    val mockScore = 10 // Example score
+
+    Frame27(navController, mockViewModel, mockScore)
 }

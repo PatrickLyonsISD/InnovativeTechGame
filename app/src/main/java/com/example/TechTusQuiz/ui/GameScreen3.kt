@@ -270,6 +270,7 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
             modifier = modifier
                 .fillMaxWidth(1.0f)
                 .fillMaxHeight(1.0f)
+                .absolutePadding(bottom=8.dp)
         )
     }
 
@@ -286,8 +287,8 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
             clipToParent = false,
             content = content,
             modifier = modifier
-                .requiredWidth(90.0.dp)
-                .requiredHeight(85.0.dp)
+                .requiredWidth(110.0.dp)
+                .requiredHeight(110.0.dp)
         )
     }
 
@@ -295,17 +296,18 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
     fun QuestionNum(questionNumber: Int, modifier: Modifier = Modifier) {
         Box(modifier = modifier) {
             RelayVector(
-                vector = painterResource(R.drawable.android_small_1_question_num),
+
                 modifier = Modifier
                     .matchParentSize() // Make the vector fill the entire Box
             )
 
             Text(
                 text = "Q ${questionNumber}",
-                fontSize = 40.sp,
-                color = Color.Black,
+                fontSize = 28.sp,
+                color = Color.White,
                 modifier = Modifier
-                    .align(Alignment.Center) // Center the text inside the Box
+                    .align(Alignment.Center)
+                    .absolutePadding(left=20.dp, top=8.dp)
             )
         }
     }
@@ -323,6 +325,7 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
             clipToParent = false,
             content = content,
             modifier = modifier
+                .absolutePadding(left=20.dp)
         )
     }
 
@@ -330,15 +333,17 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
     fun Score(score: Int, modifier: Modifier = Modifier) {
         Box(modifier = modifier) {
             RelayVector(
-                vector = painterResource(R.drawable.android_small_1_score),
+
                 modifier = Modifier.matchParentSize() // Make the vector fill the entire Box
             )
 
             Text(
                 text = "Score: $score", // Display the score
                 fontSize = 28.sp,
-                color = Color.Black,
-                modifier = Modifier.align(Alignment.Center) // Center the text inside the Box
+                color = Color.White,
+                modifier = Modifier
+                    .align(Alignment.Center) // Center the text inside the Box
+                    .absolutePadding(top=5.dp)
             )
         }
     }
@@ -358,6 +363,7 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
             modifier = modifier
                 .requiredWidth(170.0.dp)
                 .requiredHeight(85.0.dp)
+                .absolutePadding(left=20.dp)
         )
     }
 
@@ -370,7 +376,9 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
         ) {
             RelayVector(
                 vector = painterResource(R.drawable.android_small_1_question_box),
-                modifier = Modifier.matchParentSize()
+                modifier = Modifier
+                    .matchParentSize()
+                    .fillMaxWidth()
             )
 
             Row(
@@ -445,8 +453,10 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             clipToParent = false,
             content = content,
             modifier = modifier
+                .padding(end = 50.dp)
                 .requiredWidth(370.0.dp)
                 .requiredHeight(180.0.dp)
+
         )
     }
 
@@ -509,7 +519,9 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             clipToParent = false,
             content = content,
             modifier = modifier
-                .absolutePadding(left = 20.dp, bottom=20.dp)
+                .absolutePadding(left = 20.dp,
+                    bottom=20.dp,
+                    top=50.dp)
         )
     }
 
@@ -572,7 +584,9 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             clipToParent = false,
             content = content,
             modifier = modifier
-                .absolutePadding(right = 20.dp, bottom=20.dp)
+                .absolutePadding(right = 20.dp,
+                    bottom=20.dp,
+                    top=50.dp)
 
         )
     }
@@ -637,7 +651,7 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             content = content,
             modifier = modifier
 
-                .absolutePadding(left = 20.dp, top=40.dp)
+                .absolutePadding(left = 20.dp, top=80.dp)
         )
     }
 
@@ -700,7 +714,8 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             clipToParent = false,
             content = content,
             modifier = modifier
-                .absolutePadding(right=20.dp, top=40.dp)
+                .absolutePadding(right=20.dp,
+                    top=80.dp)
         )
     }
 
@@ -708,7 +723,6 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
     fun Exit(modifier: Modifier = Modifier) {
         Box(modifier = modifier) {
             RelayVector(
-                vector = painterResource(R.drawable.android_small_1_exit),
                 modifier = Modifier
                     .matchParentSize() // Fill the box
             )
@@ -716,7 +730,7 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             Text(
                 text = "Exit",
                 fontSize = 36.sp, // Adjust font size as needed
-                color = Color.Black, // Choose appropriate text color
+                color = Color.White, // Choose appropriate text color
                 modifier = Modifier
                     .align(Alignment.Center) // Center the text in the Box
             )
@@ -745,7 +759,7 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
     fun Restart3(modifier: Modifier = Modifier) {
         Box(modifier = modifier) {
             RelayVector(
-                vector = painterResource(R.drawable.android_small_1_restart),
+
                 modifier = Modifier
                     .matchParentSize() // Fill the box
             )
@@ -753,7 +767,7 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
             Text(
                 text = "Restart",
                 fontSize = 36.sp, // Adjust font size as needed
-                color = Color.Black, // Choose appropriate text color
+                color = Color.White, // Choose appropriate text color
                 modifier = Modifier
                     .align(Alignment.CenterEnd) // Center the text in the Box
             )

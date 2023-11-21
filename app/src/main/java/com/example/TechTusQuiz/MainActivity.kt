@@ -30,6 +30,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.TechTusQuiz.ui.Frame27
+import com.example.TechTusQuiz.ui.GameScreen
 import com.example.TechTusQuiz.ui.GameScreen3
 import com.example.TechTusQuiz.ui.QuizViewModel
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyApp()
+                    GameScreen()
                 }
             }
         }

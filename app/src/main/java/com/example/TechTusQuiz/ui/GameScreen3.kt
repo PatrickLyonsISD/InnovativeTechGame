@@ -402,14 +402,14 @@ fun GameScreen3(navController: NavHostController, gameViewModel: QuizViewModel =
 
 
                 // Image block
-                Image(
-                    painter = painterResource(id = question.questionImage),
+                /*Image(
+                //    painter = painterResource(id = question.questionImage),
                     contentDescription = "Question Image",
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .size(80.dp) // Slightly reduce image size
                         .weight(0.7f) // Adjust weight for image
-                )
+                )*/
             }
         }
     }
@@ -485,13 +485,13 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
                         .align(Alignment.Center) // Center the content in the Box
                         .padding(16.dp) // Add some padding around the content
                 ) {
-                    Image(
-                        painter = painterResource(id = opt.image),
+                  /*  Image(
+                      //  painter = painterResource(id = opt.image),
                         contentDescription = opt.text,
                         modifier = Modifier
                             .size(60.dp) // Standardize the size of the image
                             .align(Alignment.CenterHorizontally) // Center the image horizontally in the Column
-                    )
+                    )*/
 
                     Text(
                         text = opt.text,
@@ -550,13 +550,13 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
                         .align(Alignment.Center) // Center the content in the Box
                         .padding(16.dp) // Add some padding around the content
                 ) {
-                    Image(
-                        painter = painterResource(id = opt.image),
-                        contentDescription = opt.text,
-                        modifier = Modifier
-                            .size(60.dp) // Standardize the size of the image
-                            .align(Alignment.CenterHorizontally) // Center the image horizontally in the Column
-                    )
+                   // Image(
+                  //      painter = painterResource(id = opt.image),
+                    //    contentDescription = opt.text,
+                    //    modifier = Modifier
+                      //      .size(60.dp) // Standardize the size of the image
+                      //      .align(Alignment.CenterHorizontally) // Center the image horizontally in the Column
+                  //  )
 
                     Text(
                         text = opt.text,
@@ -616,13 +616,13 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
                         .align(Alignment.Center) // Center the content in the Box
                         .padding(16.dp) // Add some padding around the content
                 ) {
-                    Image(
+                  /*  Image(
                         painter = painterResource(id = opt.image),
                         contentDescription = opt.text,
                         modifier = Modifier
                             .size(60.dp) // Standardize the size of the image
                             .align(Alignment.CenterHorizontally) // Center the image horizontally in the Column
-                    )
+                    )*/
 
                     Text(
                         text = opt.text,
@@ -680,14 +680,14 @@ fun ExplanationDialog(explanation: String, isCorrect: Boolean?, onDismiss: () ->
                         .align(Alignment.Center) // Center the content in the Box
                         .padding(16.dp) // Add some padding around the content
                 ) {
-                    Image(
+                 /*   Image(
                         painter = painterResource(id = opt.image),
                         contentDescription = opt.text,
                         modifier = Modifier
                             .size(60.dp) // Standardize the size of the image
                             .align(Alignment.CenterHorizontally) // Center the image horizontally in the Column
                     )
-
+*/
                     Text(
                         text = opt.text,
                         fontSize = 16.sp, // Standardize the text size

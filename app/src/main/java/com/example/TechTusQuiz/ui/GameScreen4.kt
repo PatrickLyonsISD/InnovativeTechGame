@@ -356,14 +356,14 @@ fun QuestionBox1(question: Question, modifier: Modifier = Modifier) {
         maxLines = 5, // Limit the number of lines to prevent text from becoming too small
         overflow = TextOverflow.Ellipsis // Add ellipsis if text exceeds max lines
     )
-    Image(
+   /* Image(
         painter = painterResource(id = question.questionImage),
         contentDescription = "Question Image",
         modifier = Modifier
             .align(Alignment.Bottom)
             .size(180.dp) // Slightly reduce image size
             .weight(1f) // Adjust weight for image
-    )
+    )*/
 }
 
 @Composable

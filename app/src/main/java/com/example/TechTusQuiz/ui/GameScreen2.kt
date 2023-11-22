@@ -552,14 +552,14 @@ fun OptionBox(
                     .align(Alignment.Center)
                     .padding(1.dp)
             ) {
-                Image(
-                    painter = painterResource(id = opt.image),
-                    contentDescription = opt.text,
-                    modifier = Modifier
-                        .size(100.dp) // Standardize the size of images
-                        .align(Alignment.CenterHorizontally)
+               // Image(
+                  //  painter = painterResource(id = opt.image),
+               //     contentDescription = opt.text,
+              //      modifier = Modifier
+                //        .size(100.dp) // Standardize the size of images
+               //         .align(Alignment.CenterHorizontally)
 
-                )
+                //)
 
                 Text(
                     text = opt.text,
@@ -575,13 +575,13 @@ fun OptionBox(
 }
 @Composable
 fun Jeans1(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.q2_question_jeans_1),
-        contentScale = ContentScale.Crop,
-        modifier = modifier
-            .requiredWidth(118.0.dp)
-            .requiredHeight(86.0.dp)
-    )
+    //RelayImage(
+       // image = painterResource(R.drawable.q2_question_jeans_1),
+      //  contentScale = ContentScale.Crop,
+      //  modifier = modifier
+      //      .requiredWidth(118.0.dp)
+      //      .requiredHeight(86.0.dp)
+   // )
 }
 
 @Composable

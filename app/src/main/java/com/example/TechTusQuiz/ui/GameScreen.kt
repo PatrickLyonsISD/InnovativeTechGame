@@ -2,9 +2,11 @@
 package com.example.TechTusQuiz.ui
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,9 +14,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -47,16 +52,18 @@ fun GameScreen(gameViewModel: QuizViewModel = viewModel()) {
     val explanation by gameViewModel.selectedAnswerExplanation.observeAsState()
     val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
 
+    //colours
+    val darkGreen = Color(0xFF00594C)
+
+
     Scaffold {
-        Column(modifier = Modifier.fillMaxSize()) {
-            // Top Row with Logo, Question Number, and Score
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .background(darkGreen)
+        ) {
             TopBar(currentQuestionIndex = currentQuestionIndex, currentScore = currentScore)
-
-
-            // Spacer for additional space between the top bar and the question
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Main Content
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -84,25 +91,8 @@ fun GameScreen(gameViewModel: QuizViewModel = viewModel()) {
                 }
 
             }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                Button(
-                    onClick = { /* TODO: Handle Exit action */ },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Red) // change to tus gold
-                ) {
-                    Text("Exit")
-                }
-                Button(
-                    onClick = { gameViewModel.resetGame() },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Red) // change to tus gold
-                ) {
-                    Text("Restart")
-                }
-            }
+            BottomButtons(gameViewModel = gameViewModel)
+
         }
     }
 }
@@ -117,13 +107,22 @@ fun TopBar(currentQuestionIndex: Int, currentScore: Int) {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Logo on the left
-        Text("Logo Here")
+        // Replace with your logo image
+        Image(
+            painter = painterResource(id = R.drawable.android_small_1_game_logo_1), // Replace with your logo resource
+            contentDescription = "Logo"
+        )
 
-        // Question number and Score on the right
-        Column(horizontalAlignment = Alignment.End) {
-            Text("Question: $currentQuestionIndex")
-            Text("Score: $currentScore")
+        // Displaying question number and score beside each other
+        Row(verticalAlignment = Alignment.CenterVertically) { // Correct parameter for inner Row
+            Text("Question: $currentQuestionIndex",
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(end = 8.dp)
+            )
+
+            Text("Score: $currentScore",
+                    style = MaterialTheme.typography.headlineMedium
+            )
         }
     }
 }
@@ -131,27 +130,20 @@ fun TopBar(currentQuestionIndex: Int, currentScore: Int) {
 @Composable
 fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        val pinkColor = Color(0xFFFFC0CB)
+        // Consistent background and text styling for the question
+        QuestionBox(question = question.text)
+        Spacer(modifier = Modifier
+            .height(70.dp)
+            .fillMaxWidth()
+        )
 
-        Box(
-            modifier = Modifier
-                .background(pinkColor)
-                .padding(8.dp)
-        ) {
-            Text(
-                text = question.text,
-                style = MaterialTheme.typography.headlineMedium,
-                color = Color.Black
-            )
-        }
-        Spacer(modifier = Modifier.height(136.dp))
-
-        // Answers in a vertical list
+        // Consistently styled answer buttons
         question.options.forEachIndexed { index, option ->
             AnswerButton(answer = option, onClick = { onAnswerSelected(index) })
         }
     }
 }
+
 
 
 @Composable
@@ -190,20 +182,83 @@ fun <T> Grid(items: List<T>, numColumns: Int, content: @Composable (item: T, ind
 }
 
 @Composable
+fun QuestionBox(question: String) {
+    val pinkColor = Color(0xFFF0BEE6) // Using consistent color theme
+    val scrollState = rememberScrollState()
+
+    BoxWithConstraints(
+        modifier = Modifier
+            .background(pinkColor)
+            .padding(8.dp)
+    ) {
+        val maxHeight = maxHeight * 0.3f // Adjust the fraction as needed
+
+        Box(
+            modifier = Modifier
+                .heightIn(max = maxHeight)
+                .verticalScroll(scrollState)
+        ) {
+            Text(
+                text = question,
+                style = MaterialTheme.typography.headlineMedium,
+                color = Color.Black
+            )
+        }
+    }
+}
+@Composable
 fun AnswerButton(answer: Option, onClick: () -> Unit) {
+    val tusGold = Color(0xFFDAA520) // Example color, replace with actual
+
     Button(
         onClick = onClick,
-        //change to gold get #code in figma
-        colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-        modifier = Modifier.padding(8.dp)
+        colors = ButtonDefaults.buttonColors(containerColor = tusGold),
+        modifier = Modifier
+            .padding(12.dp)
+            .fillMaxWidth()
     ) {
         Text(
-            text = answer.text, // Directly use the text property of Option
+            text = answer.text,
+            style = MaterialTheme.typography.headlineMedium,
             color = Color.White
         )
     }
 }
 
+@Composable
+fun BottomButtons(gameViewModel: QuizViewModel) {
+    val tusGold = Color(0xFFDAA520) // Example color, replace with actual
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        Button(
+            onClick = { /* TODO: Handle Exit action */ },
+            colors = ButtonDefaults.buttonColors(containerColor = tusGold),
+            modifier = Modifier
+                .weight(1f)
+                .padding(end = 8.dp) // Add padding to the end of the first button
+        ) {
+            Text("Exit",
+                style = MaterialTheme.typography.headlineMedium
+                )
+        }
+
+        Button(
+            onClick = { gameViewModel.resetGame() },
+            colors = ButtonDefaults.buttonColors(containerColor = tusGold),
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 8.dp) // Add padding to the start of the second button
+        ) {
+            Text("Restart",
+                    style = MaterialTheme.typography.headlineMedium
+            )
+        }
+    }
+}
 
 @Composable
 fun ScoreDisplay(score: Int) {

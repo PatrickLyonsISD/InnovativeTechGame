@@ -53,6 +53,9 @@ class QuizViewModel: ViewModel() {
     private val _score = MutableLiveData(0)
     val score: LiveData<Int> = _score
 
+    val totalQuestions: Int
+        get() = questionsRepository.getQuestions().size
+
     fun updateScore(newScore: Int) {
         _score.value = newScore
     }

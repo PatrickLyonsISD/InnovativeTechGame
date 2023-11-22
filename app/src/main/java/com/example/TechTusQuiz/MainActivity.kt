@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GameScreen()
+                    MyApp()
                 }
             }
         }
@@ -57,9 +57,9 @@ class MainActivity : ComponentActivity() {
         val navController = rememberNavController()
         val gameViewModel: QuizViewModel = viewModel()
 
-        NavHost(navController = navController, startDestination = "gameScreen") {
-            composable("gameScreen") {
-                GameScreen3(navController, gameViewModel)
+        NavHost(navController = navController, startDestination = "GameScreen") {
+            composable("GameScreen") {
+                GameScreen(navController, gameViewModel)
             }
             composable("gameOverScreen/{score}") { backStackEntry ->
                 // Retrieve the score argument

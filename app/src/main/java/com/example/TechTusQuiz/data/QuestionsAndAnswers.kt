@@ -37,9 +37,9 @@ class QuestionsRepository{
     fun getQuestions(): List<Question>{
         return listOf(
             Question(
-                text = "Which phase of a textiles lifecycle releases the most greenhouse gases? test  test test test test test test test test test test test test test test test test test test test test test test test test test test test test  test test test test test test test test test test test test test test test test test test test test test test test test test test test",
+                text = "Which phase of a textiles lifecycle releases the most greenhouse gases? taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak taragak",
                 options = listOf(
-                    Option(text = " Factory", image = R.drawable.q2_question_factory_1 ),
+                    Option(text = "Factory", image = R.drawable.q2_question_factory_1 ),
                     Option(text = "Disposal", image = R.drawable.q2_question_disposal_1),
                     Option(text = "Transport", image = R.drawable.q2_question_transport_1 ),
                     Option(text = "Consumer", image = R.drawable.q2_question_consumer_1)

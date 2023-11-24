@@ -29,10 +29,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.TechTusQuiz.ui.Frame27
+import com.example.TechTusQuiz.ui.GameOverScreen
 import com.example.TechTusQuiz.ui.GameScreen
 import com.example.TechTusQuiz.ui.GameScreen3
 import com.example.TechTusQuiz.ui.QuizViewModel
+import com.example.TechTusQuiz.ui.WelcomeScreen
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 
 
@@ -57,14 +58,19 @@ class MainActivity : ComponentActivity() {
         val navController = rememberNavController()
         val gameViewModel: QuizViewModel = viewModel()
 
-        NavHost(navController = navController, startDestination = "GameScreen") {
-            composable("GameScreen") {
+        NavHost(navController = navController, startDestination = "welcomeScreen") {
+            composable("welcomeScreen") {
+                WelcomeScreen(navController) {
+                    navController.navigate("gameScreen")
+                }
+            }
+            composable("gameScreen") {
+                // Assuming GameScreen is expecting a QuizViewModel and NavController
                 GameScreen(navController, gameViewModel)
             }
             composable("gameOverScreen/{score}") { backStackEntry ->
-                // Retrieve the score argument
                 val score = backStackEntry.arguments?.getString("score")?.toIntOrNull() ?: 0
-                Frame27(navController, gameViewModel, currentScore = score)
+                GameOverScreen(navController, gameViewModel, score)
             }
         }
     }

@@ -1,17 +1,30 @@
 package com.example.TechTusQuiz.ui
 
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.unscramble.R
 import com.example.unscramble.frame27.inter
@@ -46,389 +60,68 @@ import com.google.relay.compose.relayDropShadow
  * Generated code; do not edit directly
  */
 @Composable
-fun Frame27(navController: NavController, gameViewModel: QuizViewModel, currentScore: Int, modifier: Modifier = Modifier) {
-    TopLevel4(modifier = modifier) {
-        Frame26 {
-            WinScreen {
-                WinScreenSynth {
-                    Frame28 {
-                        Frame24 {
-                            Frame23 {
-                                Frame22 {
-                                    Frame21 {
-                                        Frame20 {
-                                            GameLogo4(modifier = Modifier
-                                                .rowWeight(1.0f)
-                                                .columnWeight(1.0f))
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Frame30(modifier = Modifier
-                        .rowWeight(1.0f)
-                        .columnWeight(1.0f)) {
-                        Frame29(modifier = Modifier
-                            .rowWeight(1.0f)
-                            .columnWeight(1.0f)) {
-                            Rectangle4(modifier = Modifier
-                                .rowWeight(1.0f)
-                                .columnWeight(1.0f))
+fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewModel, finalScore: Int) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF00594C)), // Background color
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        // Logo at the top
+        Image(
+            painter = painterResource(id = R.drawable.q3_question_ecovitaelogo3),
+            contentDescription = "Logo",
+            modifier = Modifier.size(150.dp) // Adjust the size as needed
+        )
 
-                        }
-                    }
-                    Frame25(modifier = Modifier.rowWeight(1.0f)) {
-                        ButtonPlay4()
-                    }
-                }
-                ThanksForPlaying(
-                    modifier = Modifier.boxAlign(
-                        alignment = Alignment.TopStart,
-                        offset = DpOffset(
-                            x = 68.0.dp,
-                            y = 344.0.dp
-                        )
-                    )
-                )
-                YourFinalScoreWas(score = currentScore,
-                    modifier = Modifier.boxAlign(
-                        alignment = Alignment.TopStart,
-                        offset = DpOffset(
-                            x = 68.0.dp,
-                            y = 495.0.dp
-                        )
-                    )
-                )
-                PlayAgain(
-                    onClick = {
-                        gameViewModel.resetGame() // Reset the game state
-                        navController.navigate("gameScreen") { // Navigate to the game screen
-                            popUpTo("gameScreen") { inclusive = true } // Clear back stack
-                        }
-                    },
-                    modifier = Modifier
-                        .boxAlign(
-                            alignment = Alignment.TopStart,
-                            offset = DpOffset(x = 100.dp, y = 676.dp)
-                        )
+        // Spacing between logo and text
+        Spacer(modifier = Modifier.height(32.dp))
 
+        // Box with "Thanks for playing" message and score
+        Box(
+            modifier = Modifier
+                .background(Color(0xFFa39461), RoundedCornerShape(8.dp)) // White box with rounded corners
+                .padding(16.dp)
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "Thanks for Playing!",
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = Color.Black
                 )
-
+                Text(
+                    text = "Your Final Score: $finalScore",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = Color.Black
+                )
             }
+        }
+
+        // Spacing between box and button
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Play Again button
+        Button(
+            onClick = {
+                gameViewModel.resetGame()
+                navController.navigate("gameScreen") {
+                    popUpTo("gameScreen") { inclusive = true }
+                }
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)) // Adjust the color as needed
+        ) {
+            Text(
+                text = "Play Again",
+                style = MaterialTheme.typography.headlineMedium,
+                color = Color.Black
+            )
         }
     }
 }
-
-
-@Composable
-fun GameLogo4(modifier: Modifier = Modifier) {
-    RelayImage(
-        image = painterResource(R.drawable.frame_27_game_logo_1),
-        contentScale = ContentScale.Fit,
-        modifier = modifier
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
-            .relayDropShadow(
-                color = Color(
-                    alpha = 0,
-                    red = 0,
-                    green = 0,
-                    blue = 0
-                ),
-                borderRadius = 0.0.dp,
-                blur = 2.0.dp,
-                offsetX = 4.0.dp,
-                offsetY = 4.0.dp,
-                spread = 0.0.dp
-            )
-    )
-}
-
-@Composable
-fun Frame20(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-            .requiredWidth(417.0.dp)
-            .requiredHeight(220.0.dp)
-    )
-}
-
-@Composable
-fun Frame21(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-            .requiredWidth(417.0.dp)
-            .requiredHeight(220.0.dp)
-    )
-}
-
-@Composable
-fun Frame22(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun Frame23(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun Frame24(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun Frame28(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun Rectangle4(modifier: Modifier = Modifier) {
-    RelayVector(
-        vector = painterResource(R.drawable.frame_27_rectangle_1),
-        modifier = modifier
-            .absolutePadding(right=50.dp)
-    )
-}
-
-@Composable
-fun Frame29(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
-    )
-}
-
-@Composable
-fun Frame30(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
-    )
-}
-
-@Composable
-fun ButtonPlay4(modifier: Modifier = Modifier) {
-    RelayVector(
-        modifier = modifier
-            .requiredWidth(305.0.dp)
-            .requiredHeight(81.0.dp)
-
-    )
-
-}
-
-@Composable
-fun Frame25(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier.fillMaxWidth(1.0f)
-    )
-}
-
-@Composable
-fun WinScreenSynth(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        padding = PaddingValues(
-            start = 31.0.dp,
-            top = 28.0.dp,
-            end = 31.0.dp,
-            bottom = 28.0.dp
-        ),
-        itemSpacing = 45.0,
-        content = content,
-        modifier = modifier
-            .requiredHeight(764.0.dp)
-            .alpha(alpha = 100.0f)
-    )
-}
-
-@Composable
-fun ThanksForPlaying(modifier: Modifier = Modifier) {
-    RelayText(
-        content = "Thanks for Playing!",
-        fontSize = 32.0.sp,
-        fontFamily = inter,
-        color = Color(
-            alpha = 255,
-            red = 0,
-            green = 0,
-            blue = 0
-        ),
-        height = 1.2102272510528564.em,
-        textAlign = TextAlign.Left,
-        maxLines = -1,
-        modifier = modifier
-            .requiredWidth(291.0.dp)
-            .requiredHeight(56.0.dp)
-    )
-}
-
-@Composable
-fun YourFinalScoreWas(score: Int, modifier: Modifier = Modifier) {
-    RelayText(
-        content = "Your Final Score was: $score",
-        fontSize = 24.0.sp,
-        fontFamily = inter,
-        color = Color(
-            alpha = 255,
-            red = 0,
-            green = 0,
-            blue = 0
-        ),
-        height = 1.2102272510528564.em,
-        textAlign = TextAlign.Left,
-        maxLines = -1,
-        modifier = modifier
-            .requiredWidth(331.0.dp)
-            .requiredHeight(56.0.dp)
-    )
-}
-
-@Composable
-fun PlayAgain(onClick: () -> Unit, modifier: Modifier = Modifier) {
-    RelayText(
-        content = "Play Again",
-        fontSize = 32.0.sp,
-        fontFamily = inter,
-        color = Color.White,
-        height = 1.2102272510528564.em,
-        textAlign = TextAlign.Left,
-        modifier = modifier
-            .clickable(onClick = onClick)
-            .padding(16.dp)
-    )
-}
-
-@Composable
-fun WinScreen(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        backgroundColor = Color(
-            alpha = 255,
-            red = 0,
-            green = 89,
-            blue = 76
-        ),
-        isStructured = false,
-        content = content,
-        modifier = modifier.requiredHeight(764.0.dp)
-    )
-}
-
-@Composable
-fun Frame26(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        crossAxisAlignment = CrossAxisAlignment.Start,
-        arrangement = RelayContainerArrangement.Row,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun TopLevel4(
-    modifier: Modifier = Modifier,
-    content: @Composable RelayContainerScope.() -> Unit
-) {
-    RelayContainer(
-        mainAxisAlignment = MainAxisAlignment.Start,
-        crossAxisAlignment = CrossAxisAlignment.Start,
-        arrangement = RelayContainerArrangement.Row,
-        itemSpacing = 10.0,
-        clipToParent = false,
-        content = content,
-        modifier = modifier
-    )
-}
 @Preview
 @Composable
-private fun Frame27Preview() {
+private fun GameOverScreenPreview() {
     val navController = rememberNavController()
 
     // Mock ViewModel
@@ -437,5 +130,5 @@ private fun Frame27Preview() {
     // Mock Score
     val mockScore = 10 // Example score
 
-    Frame27(navController, mockViewModel, mockScore)
+    GameOverScreen(navController, mockViewModel, mockScore)
 }

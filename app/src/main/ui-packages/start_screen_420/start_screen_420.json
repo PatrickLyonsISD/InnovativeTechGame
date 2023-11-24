@@ -1,0 +1,185 @@
+{
+  "name": "start_screen_420",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "152:20",
+    "version": "4672364772",
+    "component-id": "499380119af2f8b9764dd25359c5f3645587646e"
+  },
+  "default": "Start-Screen-420",
+  "documentation": "welcome screen",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play"
+      },
+      {
+        "type": "text",
+        "id": "Start"
+      },
+      {
+        "type": "image",
+        "id": "TechTus11-Logo 1"
+      }
+    ],
+    "modes": {
+      "Start-Screen-420": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "gameLogo 1",
+              "Button-Play",
+              "Start",
+              "TechTus11-Logo 1"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "gameLogo 1",
+            "drop-shadow": {
+              "color": {
+                "alpha": "0.24705882352941178",
+                "hue": "0.0",
+                "saturation": "0.0",
+                "value": "0.0"
+              },
+              "blur": "2.0",
+              "offset-x": "4.0",
+              "offset-y": "4.0",
+              "spread": "0.0",
+              "blend-mode": "normal"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "98.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "40.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "220.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "220.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Button-Play",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "56.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "655.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "304.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "75.0"
+              }
+            },
+            "vector-content": "button_play.svg"
+          },
+          {
+            "id": "Start",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "170.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "673.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Start",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "TechTus11-Logo 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "85.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "326.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "249.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "221.0"
+              }
+            },
+            "image-content": "tech_tus11_logo_1.png",
+            "scale": "cover"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Start-Screen-420",
+      "size": {
+        "width": 420.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

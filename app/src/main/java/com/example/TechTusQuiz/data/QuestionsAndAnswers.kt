@@ -69,7 +69,7 @@ class QuestionsRepository{
                 difficulty=Difficulty.Easy
             ),
             Question(
-                text = "How many tonnes of microplastics (microfibre pollution) get released into the oceans every year?",
+                text = "How many tonnes of microplastics (microfibre pollution) get released into the oceans every year? ",
                 options = listOf(
                     Option(text = "55,000", image = R.drawable.q3_question_pink_210x210_1),
                     Option(text = "150,000", image = R.drawable.q3_question_plastic541_1),

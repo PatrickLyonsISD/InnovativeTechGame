@@ -25,9 +25,43 @@ import com.example.TechTusQuiz.data.Difficulty
 import com.example.TechTusQuiz.data.Question
 import com.example.TechTusQuiz.data.QuestionsRepository
 import com.example.TechTusQuiz.data.UserProgress
+import android.content.Context
+import android.media.MediaPlayer
+import androidx.lifecycle.ViewModelProvider
+import com.example.unscramble.R
 
+class SoundManager(private val context: Context) {
 
-class QuizViewModel: ViewModel() {
+    fun playCorrectAnswerSound() {
+        playSound(R.raw.game_sound_correct)
+    }
+
+    fun playWrongAnswerSound() {
+        playSound(R.raw.game_sound_wrong)
+    }
+
+    fun playCongratulationsSound() {
+        playSound(R.raw.level_up_voice)
+    }
+    private fun playSound(soundResourceId: Int) {
+        MediaPlayer.create(context, soundResourceId).apply {
+            setOnCompletionListener { mp -> mp.release() }
+            start()
+        }
+    }
+}
+
+class QuizViewModelFactory(private val soundManager: SoundManager) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(QuizViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return QuizViewModel(soundManager) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
+
+class QuizViewModel(private val soundManager: SoundManager): ViewModel() {
     private val _questions = MutableLiveData<List<Question>>()
     val questions: LiveData<List<Question>> = _questions
 
@@ -95,21 +129,35 @@ class QuizViewModel: ViewModel() {
         val totalQuestionsPerDifficulty = 4
         val correctAnswers = currentScore.value ?: 0
 
-        when {
-            correctAnswers >= totalQuestionsPerDifficulty * 3 -> _userProgress.value = UserProgress.Eco_Master
-            correctAnswers >= totalQuestionsPerDifficulty * 2 -> _userProgress.value = UserProgress.Eco_Apprentice
-            correctAnswers >= totalQuestionsPerDifficulty -> _userProgress.value = UserProgress.Eco_Novice
+        val newProgress = when {
+            correctAnswers >= totalQuestionsPerDifficulty * 3 -> UserProgress.Eco_Master
+            correctAnswers >= totalQuestionsPerDifficulty * 2 -> UserProgress.Eco_Apprentice
+            correctAnswers >= totalQuestionsPerDifficulty -> UserProgress.Eco_Novice
+            else -> null
+        }
+
+        if (newProgress != null && newProgress != _userProgress.value) {
+            _userProgress.value = newProgress
+            soundManager.playCongratulationsSound()  // Play sound on progress change
         }
     }
 
     fun submitAnswer(answerIndex: Int) {
         val question = _currentQuestion.value ?: return
         val isCorrect = question.correctAnswerIndex == answerIndex
+
         _isLastAnswerCorrect.value = isCorrect
         _currentScore.value = (_currentScore.value ?: 0) + if (isCorrect) 1 else 0
         _selectedAnswerExplanation.value = question.explanation
-        checkProgressAndUpdate()
 
+        // Play sound based on whether the answer is correct
+        if (isCorrect) {
+            soundManager.playCorrectAnswerSound()
+        } else {
+            soundManager.playWrongAnswerSound()
+        }
+
+        checkProgressAndUpdate()
     }
 
     fun proceedToNextQuestion() {

@@ -169,13 +169,13 @@ fun TopBar(currentQuestionIndex: Int, currentScore: Int) {
 
         // Displaying question number and score beside each other
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Question: $displayedQuestionIndex",
+            Text("Question:$displayedQuestionIndex",
                 style = MaterialTheme.typography.headlineMedium,
                 color = Color.White,
                 modifier = Modifier.padding(end = 8.dp)
             )
 
-            Text("Score: $currentScore",
+            Text("Score:$currentScore",
                     style = MaterialTheme.typography.headlineMedium,
                 color = Color.White
             )
@@ -422,14 +422,14 @@ fun GameOverDialog(score: Int, onDismiss: () -> Unit) {
 }
 
 @Composable
-fun ExplanationDialog(explanation: String, onDismiss: () -> Unit) {
+fun ExplanationDialog(explanation: String, isCorrect: Boolean, onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = { /* Do nothing, require explicit dismissal */ },
-        title = { Text("Explanation") },
+        title = { Text(if (isCorrect) "Correct!" else "Incorrect") },
         text = { Text(explanation) },
         confirmButton = {
             Button(onClick = onDismiss) {
-                Text("Next Question")
+                Text("OK")
             }
         }
     )

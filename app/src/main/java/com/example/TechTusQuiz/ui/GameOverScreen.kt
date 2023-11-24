@@ -119,6 +119,7 @@ fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewMode
         }
     }
 }
+/*
 @Preview
 @Composable
 private fun GameOverScreenPreview() {
@@ -131,4 +132,4 @@ private fun GameOverScreenPreview() {
     val mockScore = 10 // Example score
 
     GameOverScreen(navController, mockViewModel, mockScore)
-}
+}*/

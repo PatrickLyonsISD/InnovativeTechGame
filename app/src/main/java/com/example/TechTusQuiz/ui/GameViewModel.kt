@@ -21,9 +21,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.TechTusQuiz.data.Difficulty
 import com.example.TechTusQuiz.data.Question
 import com.example.TechTusQuiz.data.QuestionsRepository
-
+import com.example.TechTusQuiz.data.UserProgress
 
 
 class QuizViewModel: ViewModel() {
@@ -53,6 +54,12 @@ class QuizViewModel: ViewModel() {
     private val _score = MutableLiveData(0)
     val score: LiveData<Int> = _score
 
+    private val _currentDifficulty = MutableLiveData(Difficulty.Easy)
+    val currentDifficulty: LiveData<Difficulty> = _currentDifficulty
+
+    private val _userProgress = MutableLiveData(UserProgress.In_Progress)
+    val userProgress: LiveData<UserProgress> = _userProgress
+
     val totalQuestions: Int
         get() = questionsRepository.getQuestions().size
 
@@ -81,6 +88,18 @@ class QuizViewModel: ViewModel() {
         _currentScore.value = 0
         _isGameOver.value = false
         loadQuestions()
+        _userProgress.value = UserProgress.In_Progress
+    }
+
+    private fun checkProgressAndUpdate() {
+        val totalQuestionsPerDifficulty = 4
+        val correctAnswers = currentScore.value ?: 0
+
+        when {
+            correctAnswers >= totalQuestionsPerDifficulty * 3 -> _userProgress.value = UserProgress.Eco_Master
+            correctAnswers >= totalQuestionsPerDifficulty * 2 -> _userProgress.value = UserProgress.Eco_Apprentice
+            correctAnswers >= totalQuestionsPerDifficulty -> _userProgress.value = UserProgress.Eco_Novice
+        }
     }
 
     fun submitAnswer(answerIndex: Int) {
@@ -89,6 +108,7 @@ class QuizViewModel: ViewModel() {
         _isLastAnswerCorrect.value = isCorrect
         _currentScore.value = (_currentScore.value ?: 0) + if (isCorrect) 1 else 0
         _selectedAnswerExplanation.value = question.explanation
+        checkProgressAndUpdate()
 
     }
 
@@ -96,8 +116,19 @@ class QuizViewModel: ViewModel() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
         if (nextIndex < (_questions.value?.size ?: 0)) {
             _currentQuestionIndex.value = nextIndex
+            updateDifficultyIfNeeded()
         } else {
             _isGameOver.value = true
+        }
+    }
+    private fun updateDifficultyIfNeeded() {
+        val nextIndex = _currentQuestionIndex.value ?: 0
+        val totalQuestionsPerDifficulty = 4 // Assuming 3 questions per difficulty level
+
+        when {
+            nextIndex >= totalQuestionsPerDifficulty * 2 -> _currentDifficulty.value = Difficulty.Hard
+            nextIndex >= totalQuestionsPerDifficulty -> _currentDifficulty.value = Difficulty.Medium
+            else -> _currentDifficulty.value = Difficulty.Easy
         }
     }
     private fun moveToNextQuestion() {

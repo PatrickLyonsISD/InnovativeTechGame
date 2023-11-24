@@ -55,6 +55,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.TechTusQuiz.data.Option
+import com.example.TechTusQuiz.data.UserProgress
 import com.example.unscramble.R
 import com.google.relay.compose.RelayVector
 
@@ -67,14 +68,38 @@ fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = 
     val isGameOver by gameViewModel.isGameOver.observeAsState(false)
     val explanation by gameViewModel.selectedAnswerExplanation.observeAsState()
     val currentQuestionIndex by gameViewModel.currentQuestionIndex.observeAsState(0)
-
+    val userProgress by gameViewModel.userProgress.observeAsState()
+    var showEcoNoviceDialog by remember { mutableStateOf(false) }
+    var showEcoApprenticeDialog by remember { mutableStateOf(false) }
+    var showEcoMasterDialog by remember { mutableStateOf(false) }
     val explanationText = explanation
+
+    LaunchedEffect(userProgress) {
+        when (userProgress) {
+            UserProgress.Eco_Novice -> showEcoNoviceDialog = true
+            UserProgress.Eco_Apprentice -> showEcoApprenticeDialog = true
+            UserProgress.Eco_Master -> showEcoMasterDialog = true
+            else -> { /* Continue the quiz */ }
+        }
+    }
+    if (showEcoNoviceDialog) {
+        EcoNoviceDialog(onDismiss = { showEcoNoviceDialog = false })
+    }
+    if (showEcoApprenticeDialog) {
+        EcoApprenticeDialog(onDismiss = { showEcoApprenticeDialog = false })
+    }
+    if (showEcoMasterDialog) {
+        EcoMasterDialog(onDismiss = { showEcoMasterDialog = false })
+    }
+
 
     if (isGameOver) {
         LaunchedEffect(Unit) {
             navController.navigate("gameOverScreen/$currentScore")
         }
     }
+
+
 
     Scaffold {
         Column(modifier = Modifier
@@ -434,7 +459,47 @@ fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
 }
 
 
+@Composable
+fun EcoNoviceDialog(onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = { onDismiss() },
+        title = { Text("Congratulations!") },
+        text = { Text("You have become an Eco Novice. Keep going to reach the next level!") },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("Continue")
+            }
+        }
+    )
+}
 
+@Composable
+fun EcoApprenticeDialog(onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = {  },
+        title = { Text("Congratulations!") },
+        text = { Text("You have become an Eco Apprentice. Keep up the good work!") },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("Continue")
+            }
+        }
+    )
+}
+
+@Composable
+fun EcoMasterDialog(onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = {  },
+        title = { Text("Congratulations!") },
+        text = { Text("You are now an Eco Master! Excellent job!") },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text("Continue")
+            }
+        }
+    )
+}
 
 @Composable
 @Preview

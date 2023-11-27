@@ -1,0 +1,831 @@
+{
+  "name": "q3_question",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "121:22",
+    "version": "4639284171",
+    "component-id": "b54e7dffbb93e42db29ffe9dbfaa6a6e4882ee87"
+  },
+  "default": "Q3-Question",
+  "documentation": "qurstion 2",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 3"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 2"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 5"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play1"
+      },
+      {
+        "type": "text",
+        "id": "Score: 0"
+      },
+      {
+        "type": "text",
+        "id": "Q 3"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play2"
+      },
+      {
+        "type": "vector",
+        "id": "Button-Play3"
+      },
+      {
+        "type": "text",
+        "id": "Exit"
+      },
+      {
+        "type": "text",
+        "id": "Restart"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 4"
+      },
+      {
+        "type": "image",
+        "id": "pink-210x210 1"
+      },
+      {
+        "type": "image",
+        "id": "plastic541 1"
+      },
+      {
+        "type": "image",
+        "id": "glass-640x380 1"
+      },
+      {
+        "type": "image",
+        "id": "reuse 1"
+      },
+      {
+        "type": "text",
+        "id": "What material is not included in most recycling programs?"
+      },
+      {
+        "type": "text",
+        "id": "Paper"
+      },
+      {
+        "type": "text",
+        "id": "Plastic"
+      },
+      {
+        "type": "text",
+        "id": "Glass"
+      },
+      {
+        "type": "text",
+        "id": "Styrofoam"
+      },
+      {
+        "type": "image",
+        "id": "styrofoam 1"
+      }
+    ],
+    "modes": {
+      "Q3-Question": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "pink-210x210 3",
+              "pink-210x210 2",
+              "pink-210x210 5",
+              "Rectangle 1",
+              "Button-Play",
+              "Button-Play1",
+              "Score: 0",
+              "Q 3",
+              "gameLogo 1",
+              "Button-Play2",
+              "Button-Play3",
+              "Exit",
+              "Restart",
+              "pink-210x210 4",
+              "pink-210x210 1",
+              "plastic541 1",
+              "glass-640x380 1",
+              "reuse 1",
+              "What material is not included in most recycling programs?",
+              "Paper",
+              "Plastic",
+              "Glass",
+              "Styrofoam",
+              "styrofoam 1"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "pink-210x210 3",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "495.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_3.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 2",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "247.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_3.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 5",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "26.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "276.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_3.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Rectangle 1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "124.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "417.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "137.0"
+              }
+            },
+            "vector-content": "rectangle_1.svg"
+          },
+          {
+            "id": "Button-Play",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "240.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play.svg"
+          },
+          {
+            "id": "Button-Play1",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "139.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "23.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "86.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play1.svg"
+          },
+          {
+            "id": "Score: 0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "282.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Score: 0",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Q 3",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "158.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "36.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Q 3",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "gameLogo 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "31.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "15.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Button-Play2",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "248.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play2.svg"
+          },
+          {
+            "id": "Button-Play3",
+            "border-radius": "16.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "30.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "717.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "200.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "button_play3.svg"
+          },
+          {
+            "id": "Exit",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "320.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Exit",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Restart",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "75.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "730.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Restart",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "pink-210x210 4",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "247.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "497.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "210.0"
+              }
+            },
+            "image-content": "pink_210x210_3.png",
+            "scale": "cover"
+          },
+          {
+            "id": "pink-210x210 1",
+            "border-radius": "12.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "51.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "301.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "160.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "130.0"
+              }
+            },
+            "image-content": "pink_210x210_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "plastic541 1",
+            "border-radius": "12.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "272.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "301.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "160.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "130.0"
+              }
+            },
+            "image-content": "plastic541_1.jpeg",
+            "scale": "cover"
+          },
+          {
+            "id": "glass-640x380 1",
+            "border-radius": "12.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "272.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "519.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "160.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "130.0"
+              }
+            },
+            "image-content": "glass_640x380_1.jpeg",
+            "scale": "cover"
+          },
+          {
+            "id": "reuse 1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "333.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "145.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "100.0"
+              }
+            },
+            "image-content": "reuse_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "What material is not included in most recycling programs?",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "54.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "159.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "266.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "69.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "What material is not included in most recycling programs?",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Paper",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "104.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "442.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "67.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Paper",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Plastic",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "316.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "442.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "71.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Plastic",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Glass",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "330.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "658.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "71.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Glass",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "Styrofoam",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "82.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "658.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "98.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Styrofoam",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "styrofoam 1",
+            "border-radius": "12.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "51.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "519.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "160.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "130.0"
+              }
+            },
+            "image-content": "styrofoam_1.jpeg",
+            "scale": "cover"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Q3-Question",
+      "size": {
+        "width": 480.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

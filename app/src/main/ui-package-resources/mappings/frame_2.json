@@ -1,0 +1,6 @@
+{
+    "target": "Frame2",
+    "package": "com.example.unscramble.frame2",
+    "generateImplementation": true,
+    "generatePreviews": true
+}

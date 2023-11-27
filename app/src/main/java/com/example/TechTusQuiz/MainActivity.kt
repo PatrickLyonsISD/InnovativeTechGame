@@ -16,30 +16,67 @@
 
 package com.example.TechTusQuiz
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.TechTusQuiz.ui.GameOverScreen
 import com.example.TechTusQuiz.ui.GameScreen
+import com.example.TechTusQuiz.ui.QuizViewModel
+import com.example.TechTusQuiz.ui.QuizViewModelFactory
+import com.example.TechTusQuiz.ui.SoundManager
+import com.example.TechTusQuiz.ui.WelcomeScreen
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
-import com.example.unscramble.frame2.Frame2
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Create SoundManager and ViewModelFactory
+        val soundManager = SoundManager(this)
+        val viewModelFactory = QuizViewModelFactory(soundManager)
+
         setContent {
             UnscrambleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    GameScreen()
+                // Define NavController here
+                val navController = rememberNavController()
 
+                // Obtain ViewModel with the factory
+                val gameViewModel: QuizViewModel = viewModel(factory = viewModelFactory)
+
+                // Pass NavController and ViewModel to MyApp
+                MyApp(navController, gameViewModel)
+            }
+        }
+    }
+
+    @Composable
+    fun MyApp(navController: NavHostController, gameViewModel: QuizViewModel) {
+        NavHost(navController = navController, startDestination = "welcomeScreen") {
+            composable("welcomeScreen") {
+                WelcomeScreen(navController) {
+                    navController.navigate("gameScreen")
                 }
+            }
+            composable("gameScreen") {
+                GameScreen(navController, gameViewModel)
+            }
+            composable("gameOverScreen/{score}") { backStackEntry ->
+                val score = backStackEntry.arguments?.getString("score")?.toIntOrNull() ?: 0
+                GameOverScreen(navController, gameViewModel, score)
             }
         }
     }

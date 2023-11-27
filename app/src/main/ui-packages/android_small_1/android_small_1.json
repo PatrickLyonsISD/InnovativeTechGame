@@ -1,0 +1,602 @@
+{
+  "name": "android_small_1",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "zCXaw3xnciXSguBPr54QVa",
+    "node": "90:29",
+    "version": "4599131361",
+    "component-id": "523e7df02414350e3d2f6110a7ca345a6c09cd7b"
+  },
+  "default": "Android Small - 1",
+  "documentation": "using auto layout to fix spilling issue",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Frame 9"
+      },
+      {
+        "type": "group",
+        "id": "Frame 8"
+      },
+      {
+        "type": "group",
+        "id": "Frame 10"
+      },
+      {
+        "type": "group",
+        "id": "Frame 7"
+      },
+      {
+        "type": "group",
+        "id": "Frame 12"
+      },
+      {
+        "type": "group",
+        "id": "Frame 11"
+      },
+      {
+        "type": "group",
+        "id": "Frame 14"
+      },
+      {
+        "type": "group",
+        "id": "Frame 13"
+      },
+      {
+        "type": "group",
+        "id": "Frame 16"
+      },
+      {
+        "type": "group",
+        "id": "Frame 15"
+      },
+      {
+        "type": "image",
+        "id": "gameLogo 1"
+      },
+      {
+        "type": "vector",
+        "id": "QuestionNum"
+      },
+      {
+        "type": "vector",
+        "id": "Score"
+      },
+      {
+        "type": "vector",
+        "id": "Question Box"
+      },
+      {
+        "type": "image",
+        "id": "Answer 2"
+      },
+      {
+        "type": "image",
+        "id": "Answer 1"
+      },
+      {
+        "type": "image",
+        "id": "Answer 4"
+      },
+      {
+        "type": "image",
+        "id": "Answer 3"
+      },
+      {
+        "type": "vector",
+        "id": "Exit"
+      },
+      {
+        "type": "vector",
+        "id": "restart"
+      }
+    ],
+    "modes": {
+      "Android Small - 1": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Frame 9",
+              "Frame 8",
+              "Frame 10",
+              "Frame 7",
+              "Frame 12",
+              "Frame 11",
+              "Frame 14",
+              "Frame 13",
+              "Frame 16",
+              "Frame 15"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "171.2359550561798",
+              "saturation": "1.0",
+              "value": "0.34901960784313724"
+            }
+          },
+          {
+            "id": "Frame 9",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "-10.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "7.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "90.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "85.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "gameLogo 1"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 8",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "70.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "6.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "QuestionNum"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 10",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "166.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "7.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "170.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "85.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Score"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 7",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "25.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "101.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "297.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "157.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Question Box"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 12",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "180.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "268.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "141.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "142.0"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer 2"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 11",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "25.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "268.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "141.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "142.0"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer 1"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 14",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "180.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "412.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "141.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "142.0"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer 4"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 13",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "25.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "412.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "141.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "142.0"
+              }
+            },
+            "arrangement": "row",
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Answer 3"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 16",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "180.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "556.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "Exit"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "Frame 15",
+            "padding": "10.0",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "6.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "556.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "160.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "82.0"
+              }
+            },
+            "main-axis-align": "start",
+            "cross-axis-align": "start",
+            "children": [
+              "restart"
+            ],
+            "item-spacing": "10.0",
+            "clip-content": "false"
+          },
+          {
+            "id": "gameLogo 1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "game_logo_1.png",
+            "scale": "cover"
+          },
+          {
+            "id": "QuestionNum",
+            "border-radius": "16.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "86.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "65.0"
+              }
+            },
+            "vector-content": "question_num.svg"
+          },
+          {
+            "id": "Score",
+            "border-radius": "16.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "score.svg"
+          },
+          {
+            "id": "Question Box",
+            "border-radius": "16.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "question_box.svg"
+          },
+          {
+            "id": "Answer 2",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "answer_2.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Answer 1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "answer_2.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Answer 4",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "answer_2.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Answer 3",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "image-content": "answer_2.png",
+            "scale": "cover"
+          },
+          {
+            "id": "Exit",
+            "border-radius": "16.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "140.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "62.0"
+              }
+            },
+            "vector-content": "exit.svg"
+          },
+          {
+            "id": "restart",
+            "border-radius": "16.0",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "restart.svg"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Android Small - 1",
+      "size": {
+        "width": 360.0,
+        "height": 640.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

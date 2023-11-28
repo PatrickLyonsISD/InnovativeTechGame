@@ -37,6 +37,7 @@ import com.example.TechTusQuiz.ui.QuizViewModel
 import com.example.TechTusQuiz.ui.QuizViewModelFactory
 import com.example.TechTusQuiz.ui.SoundManager
 import com.example.TechTusQuiz.ui.WelcomeScreen
+import com.example.TechTusQuiz.ui.WinScreen
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
 
 
@@ -54,10 +55,9 @@ class MainActivity : ComponentActivity() {
                 // Define NavController here
                 val navController = rememberNavController()
 
-                // Obtain ViewModel with the factory
                 val gameViewModel: QuizViewModel = viewModel(factory = viewModelFactory)
 
-                // Pass NavController and ViewModel to MyApp
+
                 MyApp(navController, gameViewModel)
             }
         }
@@ -77,6 +77,9 @@ class MainActivity : ComponentActivity() {
             composable("gameOverScreen/{score}") { backStackEntry ->
                 val score = backStackEntry.arguments?.getString("score")?.toIntOrNull() ?: 0
                 GameOverScreen(navController, gameViewModel, score)
+            }
+            composable("winScreen") {
+                WinScreen(navController, gameViewModel)
             }
         }
     }

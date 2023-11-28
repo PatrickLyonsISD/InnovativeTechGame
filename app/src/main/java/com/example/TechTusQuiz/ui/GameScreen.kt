@@ -17,8 +17,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -74,6 +72,7 @@ fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
     var showEcoApprenticeDialog by remember { mutableStateOf(false) }
     var showEcoMasterDialog by remember { mutableStateOf(false) }
     val explanationText = explanation
+    val explanationImage= explanation
 
     LaunchedEffect(userProgress) {
         when (userProgress) {
@@ -136,9 +135,11 @@ fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
         }
 
         if (!explanationText.isNullOrEmpty()) {
+            val explanationImageResId = currentQuestion?.explanationImage ?: R.drawable.q2_question_factory_1 // Replace with a default image resource ID
             ExplanationDialog(
                 explanation = explanationText,
-                isCorrect = gameViewModel.isLastAnswerCorrect.value ?: false, // Assuming this value indicates if the last answer was correct
+                explanationImage = explanationImageResId,
+                isCorrect = gameViewModel.isLastAnswerCorrect.value ?: false,
                 onDismiss = {
                     gameViewModel.resetExplanation()
                     if (!isGameOver) {
@@ -431,11 +432,16 @@ fun GameOverDialog(score: Int, onDismiss: () -> Unit) {
 }
 
 @Composable
-fun ExplanationDialog(explanation: String, isCorrect: Boolean, onDismiss: () -> Unit) {
+fun ExplanationDialog(explanation: String, explanationImage: Int, isCorrect: Boolean, onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = { /* Do nothing, require explicit dismissal */ },
         title = { Text(if (isCorrect) "Correct!" else "Incorrect") },
-        text = { Text(explanation) },
+        text = {
+            Column {
+                Image(painter = painterResource(id = explanationImage), contentDescription = "Explanation Image")
+                Text(explanation)
+            }
+        },
         confirmButton = {
             Button(onClick = onDismiss) {
                 Text("OK")

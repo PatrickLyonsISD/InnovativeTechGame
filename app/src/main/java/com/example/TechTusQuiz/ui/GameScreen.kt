@@ -63,7 +63,7 @@ import com.google.relay.compose.RelayVector
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = viewModel()) {
+fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
     val currentQuestion by gameViewModel.currentQuestion.observeAsState()
     val currentScore by gameViewModel.currentScore.observeAsState(0)
     val isGameOver by gameViewModel.isGameOver.observeAsState(false)
@@ -129,8 +129,9 @@ fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = 
                 }
             }
 
-            val navController = rememberNavController()
+
             BottomButtons(navController = navController, gameViewModel = gameViewModel)
+
 
         }
 

@@ -50,6 +50,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.TechTusQuiz.data.Option
@@ -60,7 +61,7 @@ import com.google.relay.compose.RelayVector
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = viewModel()) {
+fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
     val currentQuestion by gameViewModel.currentQuestion.observeAsState()
     val currentScore by gameViewModel.currentScore.observeAsState(0)
     val isGameOver by gameViewModel.isGameOver.observeAsState(false)
@@ -98,6 +99,11 @@ fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = 
         }
     }
 
+    if (gameViewModel.isGameOver.value == true && gameViewModel.userProgress.value == UserProgress.Eco_Master) {
+        LaunchedEffect(Unit) {
+            navController.navigate("winScreen")
+        }
+    }
 
 
     Scaffold {
@@ -122,7 +128,10 @@ fun GameScreen(navController: NavHostController, gameViewModel: QuizViewModel = 
                 }
             }
 
-            BottomButtons(gameViewModel = gameViewModel)
+
+            BottomButtons(navController = navController, gameViewModel = gameViewModel)
+
+
         }
 
         if (!explanationText.isNullOrEmpty()) {
@@ -355,7 +364,7 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
 }
 
 @Composable
-fun BottomButtons(gameViewModel: QuizViewModel) {
+fun BottomButtons(navController: NavController, gameViewModel: QuizViewModel) {
     val tusGold = Color(0xFFF0BEE6) // Example color, replace with actual
 
     Row(
@@ -364,16 +373,19 @@ fun BottomButtons(gameViewModel: QuizViewModel) {
             .padding(16.dp)
     ) {
         Button(
-            onClick = { /* TODO: Handle Exit action */ },
+            onClick = {
+                gameViewModel.resetGame()
+                navController.navigate("welcomeScreen") {
+                    // Clear the back stack to prevent going back to the game screen
+                    popUpTo("welcomeScreen") { inclusive = true }
+                }
+            },
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
                 .weight(1f)
-                .padding(end = 8.dp) // Add padding to the end of the first button
+                .padding(end = 8.dp)
         ) {
-            Text("Exit",
-                style = MaterialTheme.typography.headlineMedium,
-                        color = Color.Black
-                )
+            Text("Exit", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
         }
 
         Button(
@@ -381,12 +393,9 @@ fun BottomButtons(gameViewModel: QuizViewModel) {
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
                 .weight(1f)
-                .padding(start = 8.dp) // Add padding to the start of the second button
+                .padding(start = 8.dp)
         ) {
-            Text("Restart",
-                    style = MaterialTheme.typography.headlineMedium,
-                color = Color.Black
-            )
+            Text("Restart", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
         }
     }
 }

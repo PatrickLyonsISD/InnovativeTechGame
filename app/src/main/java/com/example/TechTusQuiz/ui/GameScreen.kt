@@ -260,7 +260,7 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
                 ) {
                     Text(
                         text = question.text,
-                        style = MaterialTheme.typography.headlineMedium,
+                        style = MaterialTheme.typography.headlineSmall,
                         color = Color.Black
                     )
                 }
@@ -355,6 +355,7 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
         ) {
             Text(
                 text = answer.text,
+                style = MaterialTheme.typography.bodyLarge,
                 color = Color.Black,
                 textAlign = TextAlign.Start, // Aligns the text to the start (left)
 
@@ -382,20 +383,20 @@ fun BottomButtons(navController: NavController, gameViewModel: QuizViewModel) {
             },
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
-                .weight(1f)
+
                 .padding(end = 8.dp)
         ) {
-            Text("Exit", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
+            Text("Exit", style = MaterialTheme.typography.headlineSmall, color = Color.Black)
         }
 
         Button(
             onClick = { gameViewModel.resetGame() },
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
-                .weight(1f)
+
                 .padding(start = 8.dp)
         ) {
-            Text("Restart", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
+            Text("Restart", style = MaterialTheme.typography.headlineSmall, color = Color.Black)
         }
     }
 }

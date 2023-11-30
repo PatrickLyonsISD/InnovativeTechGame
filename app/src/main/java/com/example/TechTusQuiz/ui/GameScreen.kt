@@ -247,20 +247,20 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
             Row(
-                verticalAlignment = Alignment.Top, // Align the top of the text and image
+                verticalAlignment = Alignment.Top,
                 modifier = Modifier.padding(8.dp)
             ) {
-                // Scrollable Box for the question text
+
                 Box(
                     modifier = Modifier
-                        .weight(1f) // Take up the available space leaving room for the image
+                        .weight(1f)
                         .padding(8.dp)
-                        .heightIn(max = 250.dp) // Set maximum height for the text box
+                        .heightIn(max = 250.dp)
                         .verticalScroll(rememberScrollState())
                 ) {
                     Text(
                         text = question.text,
-                        style = MaterialTheme.typography.headlineMedium,
+                        style = MaterialTheme.typography.bodySmall,
                         color = Color.Black
                     )
                 }
@@ -275,7 +275,7 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
             }
         }
 
-        // Answer buttons as separate items
+
         items(question.options.size) { index ->
             AnswerButton(
                 answer = question.options[index],
@@ -350,11 +350,12 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
             .fillMaxWidth()
     ) {
         Box(
-            modifier = Modifier.fillMaxWidth(), // Ensures the Box fills the Button horizontally
-            contentAlignment = Alignment.CenterStart // Aligns content to the start (left)
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.CenterStart
         ) {
             Text(
                 text = answer.text,
+                style = MaterialTheme.typography.headlineMedium,
                 color = Color.Black,
                 textAlign = TextAlign.Start, // Aligns the text to the start (left)
 

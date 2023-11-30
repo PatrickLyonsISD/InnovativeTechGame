@@ -33,6 +33,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.TechTusQuiz.ui.GameOverScreen
 import com.example.TechTusQuiz.ui.GameScreen
+import com.example.TechTusQuiz.ui.InstructionScreen
 import com.example.TechTusQuiz.ui.QuizViewModel
 import com.example.TechTusQuiz.ui.QuizViewModelFactory
 import com.example.TechTusQuiz.ui.SoundManager
@@ -68,6 +69,11 @@ class MainActivity : ComponentActivity() {
         NavHost(navController = navController, startDestination = "welcomeScreen") {
             composable("welcomeScreen") {
                 WelcomeScreen(navController) {
+                    navController.navigate("instructionScreen")
+                }
+            }
+            composable("instructionScreen") {
+                InstructionScreen(navController) {
                     navController.navigate("gameScreen")
                 }
             }

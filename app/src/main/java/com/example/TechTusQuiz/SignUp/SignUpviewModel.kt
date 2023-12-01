@@ -25,10 +25,10 @@ class SignUpViewModel : ViewModel() {
             val databaseRef = FirebaseDatabase.getInstance().getReference("Users")
             databaseRef.child(uid).setValue(userProfile)
                 .addOnSuccessListener {
-                    // Profile data added successfully
+
                 }
                 .addOnFailureListener {
-                    // Handle failure
+
                 }
         }
     }

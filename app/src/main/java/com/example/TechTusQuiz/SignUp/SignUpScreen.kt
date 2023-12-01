@@ -1,15 +1,20 @@
 package com.example.TechTusQuiz.SignUp
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel = viewModel()) {
     var email by remember { mutableStateOf("") }
@@ -20,6 +25,7 @@ fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFF00594C))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -27,7 +33,13 @@ fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel 
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text("Email", fontSize = 16.sp, color = Color.White) },
+            singleLine = true,
+            textStyle = LocalTextStyle.current.copy(color = Color.White),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.Gray
+            ),
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -36,7 +48,14 @@ fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel 
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text("Password", fontSize = 16.sp, color = Color.White) },
+            singleLine = true,
+            visualTransformation = PasswordVisualTransformation(),
+            textStyle = LocalTextStyle.current.copy(color = Color.White),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.Gray
+            ),
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -45,7 +64,13 @@ fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel 
         OutlinedTextField(
             value = name,
             onValueChange = { name = it },
-            label = { Text("K-Number") },
+            label = { Text("K-Number", fontSize = 16.sp, color = Color.White) },
+            singleLine = true,
+            textStyle = LocalTextStyle.current.copy(color = Color.White),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.Gray
+            ),
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -57,21 +82,25 @@ fun SignUpScreen(navController: NavController, signUpViewModel: SignUpViewModel 
                     signUpMessage = message
                 }
             },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)),
             modifier = Modifier.fillMaxWidth()
+
         ) {
-            Text("Sign Up")
+            Text("Sign Up",style = MaterialTheme.typography.headlineMedium, color = Color.Black)
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = { navController.navigate("login") },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Already have an account? Login")
+            Text("Login",style = MaterialTheme.typography.headlineMedium, color = Color.Black)
         }
 
         signUpMessage?.let {
             Spacer(modifier = Modifier.height(8.dp))
+
             Text(it, color = MaterialTheme.colorScheme.error)
         }
     }

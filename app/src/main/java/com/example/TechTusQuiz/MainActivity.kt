@@ -68,17 +68,17 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MyApp(navController: NavHostController, gameViewModel: QuizViewModel) {
-        NavHost(navController = navController, startDestination = "login") {
-            composable("login") {
-                LoginScreen(navController) // Login screen
+        NavHost(navController = navController, startDestination = "signUpScreen") {
+            composable("signUpScreen") {
+                SignUpScreen(navController)
             }
             composable("welcomeScreen") {
                 WelcomeScreen(navController) {
                     navController.navigate("instructionScreen")
                 }
             }
-            composable("signUpScreen") {
-                SignUpScreen(navController) // SignUp screen, assuming a SignUpViewModel exists
+            composable("login") {
+                LoginScreen(navController) // SignUp screen, assuming a SignUpViewModel exists
             }
             composable("instructionScreen") {
                 InstructionScreen(navController) {

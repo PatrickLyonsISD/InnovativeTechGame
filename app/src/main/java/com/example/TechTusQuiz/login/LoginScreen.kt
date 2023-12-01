@@ -1,5 +1,6 @@
 package com.example.TechTusQuiz.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -62,6 +64,7 @@ fun LoginScreen(navController: NavController, loginViewModel: LoginViewModel = v
 
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginContent(
     username: String,
@@ -76,6 +79,7 @@ fun LoginContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFF00594C))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -83,54 +87,50 @@ fun LoginContent(
         if (isLoading) {
             CircularProgressIndicator()
         } else {
-            // Username Field
+
             OutlinedTextField(
                 value = username,
                 onValueChange = onUsernameChange,
-                label = { Text(text = "Email", fontSize = 16.sp) },
+                label = { Text(text = "Email", fontSize = 16.sp, color = Color.White) },
                 singleLine = true,
-                shape = RoundedCornerShape(8.dp)
+                shape = RoundedCornerShape(8.dp),
+                textStyle = LocalTextStyle.current.copy(color = Color.White),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color.White,
+                    unfocusedBorderColor = Color.Gray
+                )
             )
-
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Password Field
+
             OutlinedTextField(
                 value = password,
                 onValueChange = onPasswordChange,
-                label = { Text("Password", fontSize = 16.sp) },
+                label = { Text("Password", fontSize = 16.sp, color = Color.White) },
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
                 shape = RoundedCornerShape(8.dp),
-
+                textStyle = LocalTextStyle.current.copy(color = Color.White),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color.White,
+                    unfocusedBorderColor = Color.Gray
+                )
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Login Button
+
             Button(
                 onClick = onLoginClick,
                 shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)
                 )
             ) {
-                Text("Login", color = Color.Black, fontSize = 16.sp)
+                Text("Login", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
             }
 
             Spacer(modifier = Modifier.height(8.dp))
-
-            // Sign Up Button
-            Button(
-                onClick = onSignUpClick,
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer
-                )
-            ) {
-                Text("Sign Up", color = Color.Black, fontSize = 16.sp)
-            }
 
             loginError?.let {
                 Spacer(modifier = Modifier.height(8.dp))

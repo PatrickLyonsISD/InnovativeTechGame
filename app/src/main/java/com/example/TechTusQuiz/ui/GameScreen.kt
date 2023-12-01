@@ -343,10 +343,9 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
 
     Button(
         onClick = onClick,
-
         colors = ButtonDefaults.buttonColors(containerColor = tusGold),
         modifier = Modifier
-            .padding(12.dp)
+            .padding(8.dp)  // Reduced padding
             .fillMaxWidth()
     ) {
         Box(
@@ -355,10 +354,9 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
         ) {
             Text(
                 text = answer.text,
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.bodyLarge,  // Adjusted text style
                 color = Color.Black,
-                textAlign = TextAlign.Start,
-
+                textAlign = TextAlign.Start
             )
         }
     }

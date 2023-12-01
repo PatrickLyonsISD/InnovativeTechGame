@@ -144,9 +144,9 @@ fun InstructionScreen(navController: NavHostController, onStartClick: () -> Unit
             onClick = onStartClick,
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)),
             modifier = Modifier
-                .height(56.dp) // Standard Material Design button height
+                .height(56.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp) // Add horizontal padding
+                .padding(horizontal = 16.dp)
         ) {
             Text(
                 text = "Play",

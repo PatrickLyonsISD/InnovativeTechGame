@@ -11,18 +11,23 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.TechTusQuiz.userProfile.UserProfileViewModel
 
 @Composable
-fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel) {
+fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel, userProfileViewModel: UserProfileViewModel) {
+    val statusMessage by userProfileViewModel.statusMessage.collectAsState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF00594C)), // Background color
+            .background(Color(0xFF00594C)), // Adjust the background color as needed
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -44,14 +49,17 @@ fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel) {
 
         Button(
             onClick = {
-                gameViewModel.resetGame()
-                navController.navigate("gameScreen") {
-                    popUpTo("gameScreen") { inclusive = true }
-                }
+                userProfileViewModel.enterDraw()
             },
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6))
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
         ) {
-            Text("Play Again", color = Color.Black)
+            Text("Enter Draw", color = Color.Black)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        statusMessage?.let {
+            Text(it, color = Color.White)
         }
     }
 }

@@ -20,6 +20,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.relay") version "0.3.09"
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -80,7 +81,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.compose.runtime:runtime-livedata:<1.5.4>")
-    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha10") // Use the latest version
+    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.firebase:firebase-database-ktx:20.3.0") // Use the latest version
 
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")

@@ -455,7 +455,7 @@ fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
     Column {
         Text(
             text = question.text,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.bodyMedium
         )
         Spacer(modifier = Modifier.height(20.dp))
 

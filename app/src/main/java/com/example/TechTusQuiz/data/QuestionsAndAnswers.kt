@@ -179,7 +179,7 @@ class QuestionsRepository{
                     Option(text = "Make cities and human settlements inclusive, safe, resilient and sustainable", image = R.drawable.q3_question_styrofoam_1),
                     Option(text = "Ensure healthy lives and promote well-being for all at all ages", image = R.drawable.q3_question_glass_640x380_1)
                 ),
-                correctAnswerIndex = 3,
+                correctAnswerIndex = 2,
                 explanationImage=R.drawable.aq11_220x220_370_17goals,
                 explanation = "A stand-alone goal on cities and urban development in the 2030 Agenda, Sustainable Development Goal 11, \"make cities and human settlements inclusive, safe, resilient and sustainable\"",
                 questionImage = R.drawable.q11_220x220_unsdg,

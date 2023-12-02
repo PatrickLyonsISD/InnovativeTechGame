@@ -178,16 +178,21 @@ fun TopBar(currentQuestionIndex: Int, currentScore: Int) {
         )
 
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Question:$displayedQuestionIndex",
-                style = MaterialTheme.typography.headlineMedium,
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                "Question: $displayedQuestionIndex",
+                style = MaterialTheme.typography.bodyLarge,
                 color = Color.White,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
-            Text("Score:$currentScore",
-                    style = MaterialTheme.typography.headlineMedium,
-                color = Color.White
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                "Score: $currentScore",
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color.White,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         }
     }

@@ -26,28 +26,29 @@ import com.example.unscramble.R // Import your image resources
 @Composable
 fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel, userProfileViewModel: UserProfileViewModel) {
     val statusMessage by userProfileViewModel.statusMessage.collectAsState()
-    val scrollSate = rememberScrollState()
+    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
-            .verticalScroll(scrollSate)
             .fillMaxSize()
-            .background(Color(0xFF00594C)),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .background(Color(0xFF00594C))
+            .verticalScroll(scrollState)
+            .padding(16.dp), // Add padding for overall screen
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(16.dp))
 
         Image(
             painter = painterResource(id = R.drawable.q3_question_ecovitaelogo3),
             contentDescription = "Eco Vitae Logo",
-            modifier = Modifier.size(width = 150.dp, height = 250.dp)
+            modifier = Modifier.size(width = 150.dp, height = 150.dp)
         )
 
 
         Image(
             painter = painterResource(id = R.drawable.winscreenimage_220x220_transp),
             contentDescription = "Action Campaign Image",
-            modifier =Modifier.size(width = 150.dp, height = 250.dp)
+            modifier =Modifier.size(width = 150.dp, height = 150.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))

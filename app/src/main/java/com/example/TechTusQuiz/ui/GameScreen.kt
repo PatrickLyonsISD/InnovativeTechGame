@@ -260,8 +260,8 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
                 ) {
                     Text(
                         text = question.text,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.Black
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.White
                     )
                 }
 
@@ -285,32 +285,7 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
     }
 }
 
-@Composable
-fun <T> Grid(items: List<T>, numColumns: Int, content: @Composable (item: T, index: Int) -> Unit) {
-    Column {
-        for (i in items.indices step numColumns) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                for (j in 0 until numColumns) {
-                    if (i + j < items.size) {
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .aspectRatio(1f),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            content(items[i + j], i + j)
-                        }
-                    } else {
-                        Spacer(modifier = Modifier.weight(1f))
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 @Composable
 fun QuestionBox(question: String) {
@@ -354,7 +329,7 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
         ) {
             Text(
                 text = answer.text,
-                style = MaterialTheme.typography.headlineMedium,  // Adjusted text style
+                style = MaterialTheme.typography.headlineSmall,  // Adjusted text style
                 color = Color.Black,
                 textAlign = TextAlign.Start
             )

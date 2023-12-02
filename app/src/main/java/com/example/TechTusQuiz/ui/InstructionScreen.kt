@@ -60,7 +60,7 @@ fun InstructionScreen(navController: NavHostController, onStartClick: () -> Unit
         )
 
         Text(
-            "Instruction",
+            "Instructions",
             style = MaterialTheme.typography.headlineLarge,
             color = Color.White,
             fontWeight = FontWeight.Bold,
@@ -84,7 +84,7 @@ fun InstructionScreen(navController: NavHostController, onStartClick: () -> Unit
                 .height(56.dp)
                 .fillMaxWidth()
         ) {
-            Text("Play", style = MaterialTheme.typography.headlineMedium, color = Color.Black)
+            Text("Play", style = MaterialTheme.typography.bodyLarge, color = Color.Black)
         }
     }
 }
@@ -95,7 +95,7 @@ fun InstructionText(text: String) {
         text = text,
         style = MaterialTheme.typography.bodyLarge,
         color = Color.White,
-        fontSize = 20.sp,
+        fontSize = 15.sp,
         textAlign= TextAlign.Center,
         modifier = Modifier.padding(bottom = 16.dp)
     )

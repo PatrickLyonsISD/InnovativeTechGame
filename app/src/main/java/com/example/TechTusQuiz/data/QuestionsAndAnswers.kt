@@ -166,9 +166,9 @@ class QuestionsRepository{
                     Option(text = "By attracting more wildlife to the urban area", image = R.drawable.q2_question_consumer_1)
                 ),
                 correctAnswerIndex = 1,
-                explanationImage=R.drawable.aq11_220x220_370_17goals,
+                explanationImage=R.drawable.aq10_220x220_370_heating,
                 explanation = "Green roofs, covered with vegetation, can significantly reduce heating and cooling costs in buildings. They provide insulation, reducing the need for heating in the winter and cooling in the summer. This contributes to energy efficiency, a key aspect of urban sustainability, particularly in a campus setting like TUS Moylish.",
-                questionImage = R.drawable.q11_220x220_unsdg,
+                questionImage = R.drawable.q10_220x220_greenroof,
                 difficulty=Difficulty.Hard
             ),
             Question(
@@ -180,9 +180,9 @@ class QuestionsRepository{
                     Option(text = "Ensure healthy lives and promote well-being for all at all ages", image = R.drawable.q3_question_glass_640x380_1)
                 ),
                 correctAnswerIndex = 3,
-                explanationImage=R.drawable.aq10_220x220_370_heating,
+                explanationImage=R.drawable.aq11_220x220_370_17goals,
                 explanation = "A stand-alone goal on cities and urban development in the 2030 Agenda, Sustainable Development Goal 11, \"make cities and human settlements inclusive, safe, resilient and sustainable\"",
-                questionImage = R.drawable.q10_220x220_greenroof,
+                questionImage = R.drawable.q11_220x220_unsdg,
                 difficulty=Difficulty.Hard
             ),
             Question(

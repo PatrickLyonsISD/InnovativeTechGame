@@ -31,15 +31,18 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.TechTusQuiz.SignUp.SignUpScreen
+import com.example.TechTusQuiz.login.LoginScreen
 import com.example.TechTusQuiz.ui.GameOverScreen
 import com.example.TechTusQuiz.ui.GameScreen
+import com.example.TechTusQuiz.ui.InstructionScreen
 import com.example.TechTusQuiz.ui.QuizViewModel
 import com.example.TechTusQuiz.ui.QuizViewModelFactory
 import com.example.TechTusQuiz.ui.SoundManager
 import com.example.TechTusQuiz.ui.WelcomeScreen
 import com.example.TechTusQuiz.ui.WinScreen
 import com.example.TechTusQuiz.ui.theme.UnscrambleTheme
-
+import com.example.TechTusQuiz.userProfile.UserProfileViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -65,9 +68,20 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MyApp(navController: NavHostController, gameViewModel: QuizViewModel) {
-        NavHost(navController = navController, startDestination = "welcomeScreen") {
+        NavHost(navController = navController, startDestination = "signUpScreen") {
+            composable("signUpScreen") {
+                SignUpScreen(navController)
+            }
             composable("welcomeScreen") {
                 WelcomeScreen(navController) {
+                    navController.navigate("instructionScreen")
+                }
+            }
+            composable("login") {
+                LoginScreen(navController) // SignUp screen, assuming a SignUpViewModel exists
+            }
+            composable("instructionScreen") {
+                InstructionScreen(navController) {
                     navController.navigate("gameScreen")
                 }
             }
@@ -79,8 +93,11 @@ class MainActivity : ComponentActivity() {
                 GameOverScreen(navController, gameViewModel, score)
             }
             composable("winScreen") {
-                WinScreen(navController, gameViewModel)
+                val userProfileViewModel = viewModel<UserProfileViewModel>()
+
+                WinScreen(navController, gameViewModel, userProfileViewModel)
             }
+            // Add other composables if needed
         }
     }
 }

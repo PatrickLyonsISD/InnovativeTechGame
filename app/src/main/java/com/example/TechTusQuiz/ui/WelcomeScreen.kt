@@ -31,7 +31,7 @@ fun WelcomeScreen(navController: NavHostController, onStartClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF00594C)) // Background color
+            .background(Color(0xFF00594C))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -40,25 +40,25 @@ fun WelcomeScreen(navController: NavHostController, onStartClick: () -> Unit) {
         Image(
             painter = painterResource(id = R.drawable.q3_question_ecovitaelogo3),
             contentDescription = "Eco Vitae Logo",
-            modifier = Modifier.size(width = 250.dp, height = 250.dp) // Adjust size to match your design
+            modifier = Modifier.size(width = 150.dp, height = 250.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // "Created by" text
+
         Text(
             text = "Created by",
-            style = MaterialTheme.typography.bodyLarge, // or any other style you want to apply
+            style = MaterialTheme.typography.bodyLarge,
             color = Color.White
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Team logo
+
         Image(
-            painter = painterResource(id = R.drawable.start_screen_420_tech_tus11_logo_1), // Replace with your actual team logo drawable resource
+            painter = painterResource(id = R.drawable.start_screen_420_tech_tus11_logo_1),
             contentDescription = "Team Logo",
-            modifier = Modifier.size(width = 250.dp, height = 250.dp) // Adjust size to match your design
+            modifier = Modifier.size(width = 250.dp, height = 250.dp)
         )
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -66,16 +66,16 @@ fun WelcomeScreen(navController: NavHostController, onStartClick: () -> Unit) {
         // Start button
         Button(
             onClick = onStartClick,
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)), // Button color
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)),
             modifier = Modifier
-                .padding(16.dp) // Add padding around the button for larger touch area
-                .fillMaxWidth() // Make the button fill the maximum width available
-                .height(56.dp) // Set the height of the button (commonly used standard height for buttons)
+                .padding(5.dp)
+                .fillMaxWidth()
+                .height(56.dp)
         ) {
             Text(
                 text = "Start",
                 style = MaterialTheme.typography.headlineMedium,
-                color = Color.Black // Add vertical padding for larger text area inside the button
+                color = Color.Black
             )
         }
     }

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.TechTusQuiz.ui
 
 
@@ -138,7 +122,7 @@ class QuizViewModel(private val soundManager: SoundManager): ViewModel() {
 
         if (newProgress != null && newProgress != _userProgress.value) {
             _userProgress.value = newProgress
-            soundManager.playCongratulationsSound()  // Play sound on progress change
+            soundManager.playCongratulationsSound()
         }
     }
 
@@ -150,7 +134,7 @@ class QuizViewModel(private val soundManager: SoundManager): ViewModel() {
         _currentScore.value = (_currentScore.value ?: 0) + if (isCorrect) 1 else 0
         _selectedAnswerExplanation.value = question.explanation
 
-        // Play sound based on whether the answer is correct
+
         if (isCorrect) {
             soundManager.playCorrectAnswerSound()
         } else {
@@ -171,7 +155,7 @@ class QuizViewModel(private val soundManager: SoundManager): ViewModel() {
     }
     private fun updateDifficultyIfNeeded() {
         val nextIndex = _currentQuestionIndex.value ?: 0
-        val totalQuestionsPerDifficulty = 4 // Assuming 3 questions per difficulty level
+        val totalQuestionsPerDifficulty = 4
 
         when {
             nextIndex >= totalQuestionsPerDifficulty * 2 -> _currentDifficulty.value = Difficulty.Hard
@@ -183,7 +167,7 @@ class QuizViewModel(private val soundManager: SoundManager): ViewModel() {
         val nextIndex = (_currentQuestionIndex.value ?: 0) + 1
         if (nextIndex < (_questions.value?.size ?: 0)) {
             _currentQuestionIndex.value = nextIndex
-            _selectedAnswerExplanation.value = null // Reset selected answer for next question
+            _selectedAnswerExplanation.value = null
         } else {
             _isGameOver.value = true
         }

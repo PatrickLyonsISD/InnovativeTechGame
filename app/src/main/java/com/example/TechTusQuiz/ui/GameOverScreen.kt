@@ -53,35 +53,30 @@ import com.google.relay.compose.RelayText
 import com.google.relay.compose.RelayVector
 import com.google.relay.compose.relayDropShadow
 
-/**
- * GameOver Screen
- *
- * This composable was generated from the UI Package 'frame_27'.
- * Generated code; do not edit directly
- */
+
 @Composable
 fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewModel, finalScore: Int) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF00594C)), // Background color
+            .background(Color(0xFF00594C)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Logo at the top
+
         Image(
             painter = painterResource(id = R.drawable.q3_question_ecovitaelogo3),
             contentDescription = "Logo",
-            modifier = Modifier.size(150.dp) // Adjust the size as needed
+            modifier = Modifier.size(150.dp)
         )
 
-        // Spacing between logo and text
+
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Box with "Thanks for playing" message and score
+
         Box(
             modifier = Modifier
-                .background(Color(0xFFa39461), RoundedCornerShape(8.dp)) // White box with rounded corners
+                .background(Color(0xFFa39461), RoundedCornerShape(8.dp))
                 .padding(16.dp)
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -98,10 +93,10 @@ fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewMode
             }
         }
 
-        // Spacing between box and button
+
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Play Again button
+
         Button(
             onClick = {
                 gameViewModel.resetGame()
@@ -109,7 +104,7 @@ fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewMode
                     popUpTo("gameScreen") { inclusive = true }
                 }
             },
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6)) // Adjust the color as needed
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF0BEE6))
         ) {
             Text(
                 text = "Play Again",
@@ -119,17 +114,4 @@ fun GameOverScreen(navController: NavHostController, gameViewModel: QuizViewMode
         }
     }
 }
-/*
-@Preview
-@Composable
-private fun GameOverScreenPreview() {
-    val navController = rememberNavController()
 
-    // Mock ViewModel
-    val mockViewModel = QuizViewModel()
-
-    // Mock Score
-    val mockScore = 10 // Example score
-
-    GameOverScreen(navController, mockViewModel, mockScore)
-}*/

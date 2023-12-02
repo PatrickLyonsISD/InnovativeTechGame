@@ -135,7 +135,7 @@ fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
         }
 
         if (!explanationText.isNullOrEmpty()) {
-            val explanationImageResId = currentQuestion?.explanationImage ?: R.drawable.q2_question_factory_1 // Replace with a default image resource ID
+            val explanationImageResId = currentQuestion?.explanationImage ?: R.drawable.q2_question_factory_1
             ExplanationDialog(
                 explanation = explanationText,
                 explanationImage = explanationImageResId,
@@ -152,8 +152,8 @@ fun GameScreen(navController: NavController, gameViewModel: QuizViewModel) {
 }
 
 fun calculateProgress(gameViewModel: QuizViewModel): Float {
-    val totalQuestions = gameViewModel.totalQuestions // total number of questions
-    val correctAnswers = gameViewModel.currentScore.value ?: 0 // number of correct answers
+    val totalQuestions = gameViewModel.totalQuestions
+    val correctAnswers = gameViewModel.currentScore.value ?: 0
 
     return if (totalQuestions > 0) {
         correctAnswers.toFloat() / totalQuestions
@@ -177,7 +177,7 @@ fun TopBar(currentQuestionIndex: Int, currentScore: Int) {
             contentDescription = "Logo"
         )
 
-        // Displaying question number and score beside each other
+
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text("Question:$displayedQuestionIndex",
                 style = MaterialTheme.typography.headlineMedium,
@@ -208,7 +208,7 @@ fun BatteryProgressBar(progress: Float) {
             .padding(16.dp),
         contentAlignment = Alignment.BottomCenter
     ) {
-        // Draw the battery container
+
         Canvas(modifier = Modifier.fillMaxSize()) {
             val capRect = Rect(
                 offset = Offset((size.width - capWidth.toPx()) / 2, 0f),
@@ -232,7 +232,7 @@ fun BatteryProgressBar(progress: Float) {
             )
         }
 
-        // Draw the progress inside the battery
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -247,35 +247,35 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         item {
             Row(
-                verticalAlignment = Alignment.Top, // Align the top of the text and image
+                verticalAlignment = Alignment.Top,
                 modifier = Modifier.padding(8.dp)
             ) {
-                // Scrollable Box for the question text
+
                 Box(
                     modifier = Modifier
-                        .weight(1f) // Take up the available space leaving room for the image
+                        .weight(1f)
                         .padding(8.dp)
-                        .heightIn(max = 250.dp) // Set maximum height for the text box
+                        .heightIn(max = 250.dp)
                         .verticalScroll(rememberScrollState())
                 ) {
                     Text(
                         text = question.text,
-                        style = MaterialTheme.typography.headlineSmall,
-                        color = Color.Black
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.White
                     )
                 }
 
-                // Image to the right of the text
+
                 Image(
                     painter = painterResource(id = question.questionImage),
                     contentDescription = "Question Image",
-                    modifier = Modifier.size(100.dp) // Adjust the size as needed
+                    modifier = Modifier.size(100.dp)
                 )
                 BatteryProgressBar(progress = progress)
             }
         }
 
-        // Answer buttons as separate items
+
         items(question.options.size) { index ->
             AnswerButton(
                 answer = question.options[index],
@@ -285,36 +285,11 @@ fun QuizContent(question: Question, onAnswerSelected: (Int) -> Unit, progress: F
     }
 }
 
-@Composable
-fun <T> Grid(items: List<T>, numColumns: Int, content: @Composable (item: T, index: Int) -> Unit) {
-    Column {
-        for (i in items.indices step numColumns) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                for (j in 0 until numColumns) {
-                    if (i + j < items.size) {
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .aspectRatio(1f),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            content(items[i + j], i + j)
-                        }
-                    } else {
-                        Spacer(modifier = Modifier.weight(1f))
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 @Composable
 fun QuestionBox(question: String) {
-    val pinkColor = Color(0xFFFFFF) // Using consistent color theme
+    val pinkColor = Color(0xFFFFFF)
     val scrollState = rememberScrollState()
 
     BoxWithConstraints(
@@ -322,7 +297,7 @@ fun QuestionBox(question: String) {
             .background(pinkColor)
             .padding(8.dp)
     ) {
-        val maxHeight = maxHeight * 0.3f // Adjust the fraction as needed
+        val maxHeight = maxHeight * 0.3f
 
         Box(
             modifier = Modifier
@@ -339,26 +314,24 @@ fun QuestionBox(question: String) {
 }
 @Composable
 fun AnswerButton(answer: Option, onClick: () -> Unit) {
-    val tusGold = Color(0xFFa39461) // Example color, replace with actual
+    val tusGold = Color(0xFFa39461)
 
     Button(
         onClick = onClick,
-        //change this
         colors = ButtonDefaults.buttonColors(containerColor = tusGold),
         modifier = Modifier
-            .padding(12.dp)
+            .padding(8.dp)  // Reduced padding
             .fillMaxWidth()
     ) {
         Box(
-            modifier = Modifier.fillMaxWidth(), // Ensures the Box fills the Button horizontally
-            contentAlignment = Alignment.CenterStart // Aligns content to the start (left)
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.CenterStart
         ) {
             Text(
                 text = answer.text,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.headlineSmall,  // Adjusted text style
                 color = Color.Black,
-                textAlign = TextAlign.Start, // Aligns the text to the start (left)
-
+                textAlign = TextAlign.Start
             )
         }
     }
@@ -366,37 +339,37 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
 
 @Composable
 fun BottomButtons(navController: NavController, gameViewModel: QuizViewModel) {
-    val tusGold = Color(0xFFF0BEE6) // Example color, replace with actual
+    val tusGold = Color(0xFFF0BEE6)
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(25.dp)
     ) {
         Button(
             onClick = {
                 gameViewModel.resetGame()
                 navController.navigate("welcomeScreen") {
-                    // Clear the back stack to prevent going back to the game screen
+
                     popUpTo("welcomeScreen") { inclusive = true }
                 }
             },
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
-
+                .weight(1f)
                 .padding(end = 8.dp)
         ) {
-            Text("Exit", style = MaterialTheme.typography.headlineSmall, color = Color.Black)
+            Text("Exit", style = MaterialTheme.typography.bodyMedium, color = Color.Black)
         }
 
         Button(
             onClick = { gameViewModel.resetGame() },
             colors = ButtonDefaults.buttonColors(containerColor = tusGold),
             modifier = Modifier
-
+                .weight(1f)
                 .padding(start = 8.dp)
         ) {
-            Text("Restart", style = MaterialTheme.typography.headlineSmall, color = Color.Black)
+            Text("Restart", style = MaterialTheme.typography.bodyMedium, color = Color.Black)
         }
     }
 }
@@ -457,7 +430,7 @@ fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
     Column {
         Text(
             text = question.text,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.bodyMedium
         )
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -468,7 +441,7 @@ fun QuestionContent(question: Question, onAnswerSelected: (Int) -> Unit) {
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-                Text(text = option.text) // Un-comment and use the option text here
+                Text(text = option.text)
             }
         }
     }
@@ -480,7 +453,12 @@ fun EcoNoviceDialog(onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = { onDismiss() },
         title = { Text("Congratulations!") },
-        text = { Text("You have become an Eco Novice. Keep going to reach the next level!") },
+        text = {
+            Column {
+                Image(painter = painterResource(id = R.drawable.eco_novice_220x220_transp), contentDescription = "Eco Novice")
+                Text("You have become an Eco Novice. Keep going to reach the next level!")
+            }
+        },
         confirmButton = {
             Button(onClick = onDismiss) {
                 Text("Continue")
@@ -494,7 +472,12 @@ fun EcoApprenticeDialog(onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = {  },
         title = { Text("Congratulations!") },
-        text = { Text("You have become an Eco Apprentice. Keep up the good work!") },
+        text = {
+            Column {
+                Image(painter = painterResource(id = R.drawable.eco_apprentice_220x220_transp), contentDescription = "Eco Apprentice")
+                Text("You have become an Eco Apprentice. Keep up the good work!")
+            }
+        },
         confirmButton = {
             Button(onClick = onDismiss) {
                 Text("Continue")
@@ -508,7 +491,12 @@ fun EcoMasterDialog(onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = {  },
         title = { Text("Congratulations!") },
-        text = { Text("You are now an Eco Master! Excellent job!") },
+        text = {
+            Column {
+                Image(painter = painterResource(id = R.drawable.eco_master_220x220_transp), contentDescription = "Eco Master")
+                Text("You are now an Eco Master! Excellent job!")
+            }
+        },
         confirmButton = {
             Button(onClick = onDismiss) {
                 Text("Continue")
@@ -522,7 +510,7 @@ fun EcoMasterDialog(onDismiss: () -> Unit) {
 fun GameScreenPreview() {
     UnscrambleTheme {
         val navController = rememberNavController()
-        val gameViewModel = viewModel<QuizViewModel>() // Mock ViewModel, adjust as needed for preview
+        val gameViewModel = viewModel<QuizViewModel>()
 
         GameScreen(navController, gameViewModel)
     }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "527171063300",
+    "project_id": "techtusquiz-741b0",
+    "storage_bucket": "techtusquiz-741b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527171063300:android:7802b9f0549bc370816f51",
+        "android_client_info": {
+          "package_name": "com.example.TechTusQuiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeIdpL2i32QLlO62xGIvEsl8XiMiuuBHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

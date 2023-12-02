@@ -18,7 +18,7 @@ data class Question(
     val correctAnswerIndex: Int,
     val explanationImage: Int,
     val explanation: String,
-    val questionImage: Int, // Image for the question
+    val questionImage: Int,
     val difficulty: Difficulty
 )
 
@@ -69,7 +69,7 @@ class QuestionsRepository{
                 correctAnswerIndex = 0,
                 explanationImage=R.drawable.aq3_220x220_plasticbag,
                 explanation = "Plastic Grocery Bags are typically used once before disposal and are a major contributor to plastic waste. Many places have started to ban their use or charge a fee for them to encourage the use of a reusable bag.",
-                questionImage = R.drawable.q3_220x220_plasticbag,
+                questionImage = R.drawable.q3_220x220_singleuse,
                 difficulty=Difficulty.Easy
             ),
             Question(
@@ -82,9 +82,7 @@ class QuestionsRepository{
                 ),
                 correctAnswerIndex = 3,
                 explanationImage=R.drawable.aq4_220x220_tonnes,
-                explanation = "http://sdgsforall.ie/wp-content/uploads/2020/06/WVI_SustainableFashion_051320-1.pdf \n" +
-                        "\n" +
-                        "Most recent research shows that 500,000 tonnes of microfibres (equivalent to 50billion plastic bottles4) are released into the oceans every year (microfibre pollution). ",
+                explanation = "Most recent research shows that 500,000 tonnes of microfibres (equivalent to 50billion plastic bottles4) are released into the oceans every year (microfibre pollution). ",
                 questionImage = R.drawable.q4_220x220_microplastics,
                 difficulty=Difficulty.Easy
             ),
@@ -94,14 +92,12 @@ class QuestionsRepository{
                     Option(text = "Transportation", image = R.drawable.q2_question_factory_1 ),
                     Option(text = "Disposal", image = R.drawable.q2_question_disposal_1),
                     Option(text = "Manufacturing", image = R.drawable.q2_question_transport_1 ),
-                    Option(text = "Consumer", image = R.drawable.q2_question_consumer_1)
+                    Option(text = "Sales", image = R.drawable.q2_question_consumer_1)
                 ),
                 correctAnswerIndex = 0,
-                explanationImage=R.drawable.q3_question_reuse_1,
-                explanation = "https://climateseed.com/blog/secteur-du-textile-impact-environnemental-et-r%C3%A9glementation \n" +
-                        "\n" +
-                        "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight if it is used, causes significant contributions to GHG emissions.",
-                questionImage = R.drawable.q2_question_jeans_1,
+                explanationImage=R.drawable.aq5_220x220_transport,
+                explanation = "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight if it is used, causes significant contributions to GHG emissions.",
+                questionImage = R.drawable.q5_220x220_textiles_cottontshirt,
                 difficulty=Difficulty.Medium
             ),
             Question(
@@ -113,10 +109,8 @@ class QuestionsRepository{
                     Option(text = "27,000", image = R.drawable.q3_question_glass_640x380_1)
                 ),
                 correctAnswerIndex = 2,
-                explanationImage=R.drawable.q3_question_reuse_1,
-                explanation = "http://sdgsforall.ie/wp-content/uploads/2020/06/WVI_SustainableFashion_051320-1.pdf \n" +
-                        "\n" +
-                        "Cotton contributes to the global freshwater shortage due to the vast quantities required during farming and production. It can take approximately 2,700 litres of water to produce one cotton t-shirt.",
+                explanationImage=R.drawable.aq6_220x220_2700litres,
+                explanation = "Cotton contributes to the global freshwater shortage due to the vast quantities required during farming and production. It can take approximately 2,700 litres of water to produce one cotton t-shirt.",
                 questionImage = R.drawable.q6_220x220_waterlitre,
                 difficulty=Difficulty.Medium
             ),
@@ -129,7 +123,7 @@ class QuestionsRepository{
                     Option(text = "Burning them for heat", image = R.drawable.q2_question_consumer_1)
                 ),
                 correctAnswerIndex = 0,
-                explanationImage=R.drawable.q3_question_reuse_1,
+                explanationImage=R.drawable.aq7_220x220_reuse,
                 explanation = "Reusing single-use plastics for the same or other purposes can help reduce the demand for new plastics and minimize waste. While not all single-use plastics can be recycled, reusing them when possible is a direct action that can lessen environmental impact.",
                 questionImage = R.drawable.q7_220x220_thinkgreen,
                 difficulty=Difficulty.Medium
@@ -143,7 +137,7 @@ class QuestionsRepository{
                     Option(text = "Up to 1000 years", image = R.drawable.q3_question_glass_640x380_1)
                 ),
                 correctAnswerIndex = 2,
-                explanationImage=R.drawable.q3_question_reuse_1,
+                explanationImage=R.drawable.aq8_220x220_time450,
                 explanation = "Plastic bottles are made of PET (polyethylene terephthalate), which is highly durable and resistant to decomposition. In marine environments, these bottles can take up to 450 years to decompose, leading to long-term pollution and harm to marine life.",
                 questionImage = R.drawable.q8_220x220_seawaste,
                 difficulty=Difficulty.Medium
@@ -157,9 +151,24 @@ class QuestionsRepository{
                     Option(text = "370", image = R.drawable.q2_question_consumer_1)
                 ),
                 correctAnswerIndex = 3,
-                explanationImage=R.drawable.q3_question_reuse_1,
-                explanation = "Transportation is involved in and between every stage of the clothing life cycle. The clothing supply chain is global and air freight, in particular, if it is used, causes significant contributions to GHG emissions, ",
+                explanationImage=R.drawable.aq9_220x220_370panels,
+                explanation = "the electricity generated by the current installation of photovoltaic panels on the Moylish campus which comprises 370 solar photovoltaic panels (166KWp) covering 800m2 roof space and avoiding 64 tons of CO2 emissions annually.",
                 questionImage = R.drawable.q9_220x220_solarpanels,
+                difficulty=Difficulty.Hard
+            ),
+
+            Question(
+                text = "How can green roofing on college buildings, like those at TUS Moylish, contribute to urban sustainability?",
+                options = listOf(
+                    Option(text = "By providing additional space for classrooms", image = R.drawable.q2_question_factory_1 ),
+                    Option(text = "By reducing building heating and cooling costs", image = R.drawable.q2_question_disposal_1),
+                    Option(text = "By increasing the building's weight and stability", image = R.drawable.q2_question_transport_1 ),
+                    Option(text = "By attracting more wildlife to the urban area", image = R.drawable.q2_question_consumer_1)
+                ),
+                correctAnswerIndex = 1,
+                explanationImage=R.drawable.aq11_220x220_370_17goals,
+                explanation = "Green roofs, covered with vegetation, can significantly reduce heating and cooling costs in buildings. They provide insulation, reducing the need for heating in the winter and cooling in the summer. This contributes to energy efficiency, a key aspect of urban sustainability, particularly in a campus setting like TUS Moylish.",
+                questionImage = R.drawable.q11_220x220_unsdg,
                 difficulty=Difficulty.Hard
             ),
             Question(
@@ -171,25 +180,9 @@ class QuestionsRepository{
                     Option(text = "Ensure healthy lives and promote well-being for all at all ages", image = R.drawable.q3_question_glass_640x380_1)
                 ),
                 correctAnswerIndex = 3,
-                explanationImage=R.drawable.q3_question_reuse_1,
-                explanation = "https://tus.ie/app/uploads/ProfessionalServices/CampusServicesCapitalDev/TUS-Climate-Action-Roadmap-2023-2026.pdf \n" +
-                        "\n" +
-                        "the electricity generated by the current installation of photovoltaic panels on the Moylish campus which comprises 370 solar photovoltaic panels (166KWp) covering 800m2 roof space and avoiding 64 tons of CO2 emissions annually.",
+                explanationImage=R.drawable.aq10_220x220_370_heating,
+                explanation = "the electricity generated by the current installation of photovoltaic panels on the Moylish campus which comprises 370 solar photovoltaic panels (166KWp) covering 800m2 roof space and avoiding 64 tons of CO2 emissions annually.",
                 questionImage = R.drawable.q10_220x220_greenroof,
-                difficulty=Difficulty.Hard
-            ),
-            Question(
-                text = "How can green roofing on college buildings, like those at TUS Moylish, contribute to urban sustainability?",
-                options = listOf(
-                    Option(text = "By providing additional space for classrooms", image = R.drawable.q2_question_factory_1 ),
-                    Option(text = "By reducing building heating and cooling costs", image = R.drawable.q2_question_disposal_1),
-                    Option(text = "By increasing the building's weight and stability", image = R.drawable.q2_question_transport_1 ),
-                    Option(text = "By attracting more wildlife to the urban area", image = R.drawable.q2_question_consumer_1)
-                ),
-                correctAnswerIndex = 1,
-                explanationImage=R.drawable.q3_question_reuse_1,
-                explanation = "Green roofs, covered with vegetation, can significantly reduce heating and cooling costs in buildings. They provide insulation, reducing the need for heating in the winter and cooling in the summer. This contributes to energy efficiency, a key aspect of urban sustainability, particularly in a campus setting like TUS Moylish.",
-                questionImage = R.drawable.q11_220x220_unsdg,
                 difficulty=Difficulty.Hard
             ),
             Question(
@@ -200,7 +193,7 @@ class QuestionsRepository{
                     Option(text = "17 Goals and 169 Targets", image = R.drawable.q3_question_styrofoam_1),
                     Option(text = "169 Goals and 10 Targets", image = R.drawable.q3_question_glass_640x380_1)
                 ),
-                explanationImage=R.drawable.q3_question_reuse_1,
+                explanationImage=R.drawable.aq12_220x220_370_greencity,
                 correctAnswerIndex = 2,
                 explanation = "The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, has 17 Sustainable Development Goals (SDGs) and 169 Targets, which are an urgent call for action by all countries - developed and developing - in a global partnership.",
                 questionImage = R.drawable.q12_220x220_sdg11,

@@ -334,7 +334,7 @@ fun AnswerButton(answer: Option, onClick: () -> Unit) {
         ) {
             Text(
                 text = answer.text,
-                style = MaterialTheme.typography.headlineSmall,  // Adjusted text style
+                style = MaterialTheme.typography.bodyMedium,  // Adjusted text style
                 color = Color.Black,
                 textAlign = TextAlign.Start
             )

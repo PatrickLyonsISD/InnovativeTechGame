@@ -1,5 +1,6 @@
 package com.example.TechTusQuiz.ui
 
+import android.app.Activity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,28 +28,31 @@ import com.example.unscramble.R // Import your image resources
 @Composable
 fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel, userProfileViewModel: UserProfileViewModel) {
     val statusMessage by userProfileViewModel.statusMessage.collectAsState()
-    val scrollSate = rememberScrollState()
+    val scrollState = rememberScrollState()
+    val tusGold = Color(0xFFF0BEE6)
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
-            .verticalScroll(scrollSate)
             .fillMaxSize()
-            .background(Color(0xFF00594C)),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .background(Color(0xFF00594C))
+            .verticalScroll(scrollState)
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(16.dp))
 
         Image(
             painter = painterResource(id = R.drawable.q3_question_ecovitaelogo3),
             contentDescription = "Eco Vitae Logo",
-            modifier = Modifier.size(width = 150.dp, height = 250.dp)
+            modifier = Modifier.size(width = 150.dp, height = 150.dp)
         )
 
 
         Image(
             painter = painterResource(id = R.drawable.winscreenimage_220x220_transp),
             contentDescription = "Action Campaign Image",
-            modifier =Modifier.size(width = 150.dp, height = 250.dp)
+            modifier =Modifier.size(width = 150.dp, height = 150.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -80,8 +85,17 @@ fun WinScreen(navController: NavHostController, gameViewModel: QuizViewModel, us
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+
         statusMessage?.let {
             Text(it, color = Color.White)
+        }
+        Button(
+            onClick = {
+                (context as? Activity)?.finish()
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = tusGold)
+        ) {
+            Text("Exit", style = MaterialTheme.typography.bodyMedium, color = Color.Black)
         }
     }
 }
